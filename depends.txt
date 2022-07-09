@@ -1,3 +1,0 @@
-mobs
-default
-hunger_ng?
