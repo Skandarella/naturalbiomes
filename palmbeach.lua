@@ -50,7 +50,6 @@ offset = -0.004,
 		y_min = 1,
 		schematic = minetest.get_modpath("naturalbiomes") .. "/schematics/naturalbiomes_beachrock_large_0_270.mts",
 		flags = "place_center_x, place_center_z",
-    flags = "force_placement",
     rotation = "random",
 	})
 
@@ -74,7 +73,6 @@ offset = -0.004,
 		y_min = 1,
 		schematic = minetest.get_modpath("naturalbiomes") .. "/schematics/naturalbiomes_beachrock_small_0_270.mts",
 		flags = "place_center_x, place_center_z",
-    flags = "force_placement",
     rotation = "random",
 	})
 
