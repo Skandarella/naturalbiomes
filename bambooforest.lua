@@ -1,3 +1,8 @@
+
+local modname = "naturalbiomes"
+local modpath = minetest.get_modpath(modname)
+local mg_name = minetest.get_mapgen_setting("mg_name")
+
 minetest.register_node("naturalbiomes:bambooforest_litter", {
 	description = ("Bamboo Forest Litter"),
 	tiles = {"naturalbiomes_bambooforest_litter.png", "naturalbiomes_bambooforest_rock.png",
@@ -26,6 +31,21 @@ minetest.register_biome({
     heat_point = 89,
     humidity_point = 77,
 })
+
+-- Tree generation
+--
+
+-- New bamboo tree
+
+local function grow_new_bamboo_tree(pos)
+	if not default.can_grow(pos) then
+		-- try a bit later again
+		minetest.get_node_timer(pos):start(math.random(240, 600))
+		return
+	end
+
+	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_bambootree_large_0_270.mts", "0", nil, true)
+end 
 
 -- bamboo trunk
 minetest.register_node("naturalbiomes:bamboo_trunk", {
@@ -87,14 +107,13 @@ minetest.register_node("naturalbiomes:bamboo_leaves", {
 minetest.register_node("naturalbiomes:bamboo_sapling", {
   description = ("Bamboo Sapling"),
   drawtype = "plantlike",
-  visual_scale = 1.0,
   tiles = {"naturalbiomes_bambooforest_bamboo_sapling.png"},
   inventory_image = "naturalbiomes_bambooforest_bamboo_sapling.png",
   wield_image = "naturalbiomes_bambooforest_bamboo_sapling.png",
   paramtype = "light",
   sunlight_propagates = true,
   walkable = false,
-  on_timer = default.grow_sapling,
+  on_timer = grow_new_bamboo_tree,
   selection_box = {
     type = "fixed",
     fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -103,37 +122,23 @@ minetest.register_node("naturalbiomes:bamboo_sapling", {
     attached_node = 1, sapling = 1},
   sounds = default.node_sound_leaves_defaults(),
 
-  on_construct = function(pos)
-    minetest.get_node_timer(pos):start(math.random(2400,4800))
-  end,
+	on_construct = function(pos)
+		minetest.get_node_timer(pos):start(math.random(300, 1500))
+	end,
 
   on_place = function(itemstack, placer, pointed_thing)
-  minetest.log("action", ("Alder sapling placed."))
     itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
       "naturalbiomes:bamboo_sapling",
-      -- minp, maxp to be checked, relative to sapling pos
-      -- minp_relative.y = 1 because sapling pos has been checked
-      {x = -2, y = 1, z = -2},
-      {x = 2, y = 13, z = 2},
-      -- maximum interval of interior volume check
-      4)
+			-- minp, maxp to be checked, relative to sapling pos
+			{x = -1, y = 0, z = -1},
+			{x = 1, y = 1, z = 1},
+			-- maximum interval of interior volume check
+			2)
 
     return itemstack
   end,
 })
 
-
-
--- Tree generation
---
-
--- New bamboo tree
-
-function default.grow_new_bamboo_tree(pos)
-  local path = naturalbiomes.path .. "/schematics/naturalbiomes_bambootree_large_0_270.mts"
-  minetest.place_schematic({x = pos.x - 3, y = pos.y, z = pos.z - 3},
-    path, "0", nil, false)
-end 
 
     stairs.register_stair_and_slab(
       "naturalbiomes_bambooforest_bamboo_wood2",
@@ -353,6 +358,22 @@ minetest.register_node("naturalbiomes:bambooforest_groundgrass2", {
 	    },
     })
 
+--
+-- Tree generation
+--
+
+-- New banana tree
+
+local function grow_new_banana_tree(pos)
+	if not default.can_grow(pos) then
+		-- try a bit later again
+		minetest.get_node_timer(pos):start(math.random(240, 600))
+		return
+	end
+
+	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_banana_palm_0_90.mts", "0", nil, true)
+end 
+
 -- banana trunk
 minetest.register_node("naturalbiomes:banana_trunk", {
 	description = ("Banana Trunk"),
@@ -413,14 +434,13 @@ minetest.register_node("naturalbiomes:banana_leaves", {
 minetest.register_node("naturalbiomes:banana_sapling", {
   description = ("Banana Sapling"),
   drawtype = "plantlike",
-  visual_scale = 1.0,
   tiles = {"naturalbiomes__banana_tree_sapling.png"},
   inventory_image = "naturalbiomes__banana_tree_sapling.png",
   wield_image = "naturalbiomes__banana_tree_sapling.png",
   paramtype = "light",
   sunlight_propagates = true,
   walkable = false,
-  on_timer = default.grow_sapling,
+  on_timer = grow_new_banana_tree,
   selection_box = {
     type = "fixed",
     fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -429,38 +449,23 @@ minetest.register_node("naturalbiomes:banana_sapling", {
     attached_node = 1, sapling = 1},
   sounds = default.node_sound_leaves_defaults(),
 
-  on_construct = function(pos)
-    minetest.get_node_timer(pos):start(math.random(2400,4800))
-  end,
+	on_construct = function(pos)
+		minetest.get_node_timer(pos):start(math.random(300, 1500))
+	end,
 
   on_place = function(itemstack, placer, pointed_thing)
-  minetest.log("action", ("Banana sapling placed."))
     itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
       "naturalbiomes:banana_sapling",
-      -- minp, maxp to be checked, relative to sapling pos
-      -- minp_relative.y = 1 because sapling pos has been checked
-      {x = -2, y = 1, z = -2},
-      {x = 2, y = 13, z = 2},
-      -- maximum interval of interior volume check
-      4)
+			-- minp, maxp to be checked, relative to sapling pos
+			{x = -1, y = 0, z = -1},
+			{x = 1, y = 1, z = 1},
+			-- maximum interval of interior volume check
+			2)
 
     return itemstack
   end,
 })
 
-
-
---
--- Tree generation
---
-
--- New banana tree
-
-function default.grow_new_banana_tree(pos)
-  local path = naturalbiomes.path .. "/schematics/naturalbiomes_banana_palm_0_90.mts"
-  minetest.place_schematic({x = pos.x - 3, y = pos.y, z = pos.z - 3},
-    path, "0", nil, false)
-end 
 
     stairs.register_stair_and_slab(
       "naturalbiomes_banana_wood",

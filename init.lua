@@ -1,4 +1,8 @@
 
+local modname = "naturalbiomes"
+local modpath = minetest.get_modpath(modname)
+local mg_name = minetest.get_mapgen_setting("mg_name")
+
 -- Load support for intllib.
 local path = minetest.get_modpath(minetest.get_current_modname()) .. "/"
 

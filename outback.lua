@@ -1,3 +1,8 @@
+
+local modname = "naturalbiomes"
+local modpath = minetest.get_modpath(modname)
+local mg_name = minetest.get_mapgen_setting("mg_name")
+
 minetest.register_node("naturalbiomes:outback_litter", {
 	description = ("Outback ground with grass"),
 	tiles = {"naturalbiomes_outbacklitter.png", "naturalbiomes_outback_ground.png",
@@ -41,6 +46,21 @@ minetest.register_biome({
     heat_point = 82,
     humidity_point = 32,
 })
+
+-- Tree generation
+--
+
+-- New outback tree
+
+local function grow_new_outback_tree(pos)
+	if not default.can_grow(pos) then
+		-- try a bit later again
+		minetest.get_node_timer(pos):start(math.random(240, 600))
+		return
+	end
+
+	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_outback_tree1_0_90.mts", "0", nil, true)
+end 
 
 -- outback trunk
 minetest.register_node("naturalbiomes:outback_trunk", {
@@ -102,14 +122,13 @@ minetest.register_node("naturalbiomes:outback_leaves", {
 minetest.register_node("naturalbiomes:outback_sapling", {
   description = ("Outback Sapling"),
   drawtype = "plantlike",
-  visual_scale = 1.0,
   tiles = {"naturalbiomes_outbackeukaplyptus_sapling.png"},
   inventory_image = "naturalbiomes_outbackeukaplyptus_sapling.png",
   wield_image = "naturalbiomes_outbackeukaplyptus_sapling.png",
   paramtype = "light",
   sunlight_propagates = true,
   walkable = false,
-  on_timer = default.grow_sapling,
+  on_timer = grow_new_outback_tree,
   selection_box = {
     type = "fixed",
     fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -118,37 +137,23 @@ minetest.register_node("naturalbiomes:outback_sapling", {
     attached_node = 1, sapling = 1},
   sounds = default.node_sound_leaves_defaults(),
 
-  on_construct = function(pos)
-    minetest.get_node_timer(pos):start(math.random(2400,4800))
-  end,
+	on_construct = function(pos)
+		minetest.get_node_timer(pos):start(math.random(300, 1500))
+	end,
 
   on_place = function(itemstack, placer, pointed_thing)
-  minetest.log("action", ("Alder sapling placed."))
     itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
       "naturalbiomes:outback_sapling",
-      -- minp, maxp to be checked, relative to sapling pos
-      -- minp_relative.y = 1 because sapling pos has been checked
-      {x = -2, y = 1, z = -2},
-      {x = 2, y = 13, z = 2},
-      -- maximum interval of interior volume check
-      4)
+			-- minp, maxp to be checked, relative to sapling pos
+			{x = -1, y = 0, z = -1},
+			{x = 1, y = 1, z = 1},
+			-- maximum interval of interior volume check
+			2)
 
     return itemstack
   end,
 })
 
-
-
--- Tree generation
---
-
--- New outback tree
-
-function default.grow_new_outback_tree(pos)
-  local path = naturalbiomes.path .. "/schematics/naturalbiomes_outback_tree1_0_90.mts"
-  minetest.place_schematic({x = pos.x - 3, y = pos.y, z = pos.z - 3},
-    path, "0", nil, false)
-end 
 
     stairs.register_stair_and_slab(
       "naturalbiomes_outback_eukalyptus_wood",
@@ -266,6 +271,18 @@ minetest.register_decoration({
 
 	-- Outback Bush
 
+-- New outback bush
+
+local function grow_new_outback_bush(pos)
+	if not default.can_grow(pos) then
+		-- try a bit later again
+		minetest.get_node_timer(pos):start(math.random(240, 600))
+		return
+	end
+
+	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_outback_bush_small2_0_270.mts", "0", nil, true)
+end 
+
 	minetest.register_decoration({
 		name = "naturalbiomes:outback_bush",
 		deco_type = "schematic",
@@ -331,7 +348,7 @@ minetest.register_node("naturalbiomes:outback_bush_sapling", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	on_timer = grow_sapling,
+	on_timer = grow_new_outback_bush,
 	selection_box = {
 		type = "fixed",
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16}

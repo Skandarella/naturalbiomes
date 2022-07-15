@@ -1,3 +1,8 @@
+
+local modname = "naturalbiomes"
+local modpath = minetest.get_modpath(modname)
+local mg_name = minetest.get_mapgen_setting("mg_name")
+
 minetest.register_node("naturalbiomes:mediterran_litter", {
 	description = ("Mediterranean litter with grass"),
 	tiles = {"naturalbiomes_mediterran_litter.png", "default_dirt.png",
@@ -50,6 +55,21 @@ minetest.register_biome({
     heat_point = 58,
     humidity_point = 30,
 })
+
+-- Tree generation
+--
+
+-- New olive tree
+
+local function grow_new_olive_tree(pos)
+	if not default.can_grow(pos) then
+		-- try a bit later again
+		minetest.get_node_timer(pos):start(math.random(240, 600))
+		return
+	end
+
+	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_olive_tree_0_90.mts", "0", nil, true)
+end 
 
 -- olive trunk
 minetest.register_node("naturalbiomes:olive_trunk", {
@@ -111,14 +131,13 @@ minetest.register_node("naturalbiomes:olive_leaves", {
 minetest.register_node("naturalbiomes:olive_sapling", {
   description = ("Olive Sapling"),
   drawtype = "plantlike",
-  visual_scale = 1.0,
   tiles = {"naturalbiomes_mediterran_olive_sapling.png"},
   inventory_image = "naturalbiomes_mediterran_olive_sapling.png",
   wield_image = "naturalbiomes_mediterran_olive_sapling.png",
   paramtype = "light",
   sunlight_propagates = true,
   walkable = false,
-  on_timer = default.grow_sapling,
+  on_timer = grow_new_olive_tree,
   selection_box = {
     type = "fixed",
     fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -127,37 +146,23 @@ minetest.register_node("naturalbiomes:olive_sapling", {
     attached_node = 1, sapling = 1},
   sounds = default.node_sound_leaves_defaults(),
 
-  on_construct = function(pos)
-    minetest.get_node_timer(pos):start(math.random(2400,4800))
-  end,
+	on_construct = function(pos)
+		minetest.get_node_timer(pos):start(math.random(300, 1500))
+	end,
 
   on_place = function(itemstack, placer, pointed_thing)
-  minetest.log("action", ("Olive sapling placed."))
     itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
       "naturalbiomes:olive_sapling",
-      -- minp, maxp to be checked, relative to sapling pos
-      -- minp_relative.y = 1 because sapling pos has been checked
-      {x = -2, y = 1, z = -2},
-      {x = 2, y = 13, z = 2},
-      -- maximum interval of interior volume check
-      4)
+			-- minp, maxp to be checked, relative to sapling pos
+			{x = -1, y = 0, z = -1},
+			{x = 1, y = 1, z = 1},
+			-- maximum interval of interior volume check
+			2)
 
     return itemstack
   end,
 })
 
-
-
--- Tree generation
---
-
--- New olive tree
-
-function default.grow_new_olive_tree(pos)
-  local path = naturalbiomes.path .. "/schematics/naturalbiomes_olive_tree_0_90.mts"
-  minetest.place_schematic({x = pos.x - 3, y = pos.y, z = pos.z - 3},
-    path, "0", nil, false)
-end 
 
     stairs.register_stair_and_slab(
       "naturalbiomes_mediterran_olive_wood",
@@ -234,6 +239,22 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
+-- Tree generation
+--
+
+-- New pine tree
+
+local function grow_new_pine_tree(pos)
+	if not default.can_grow(pos) then
+		-- try a bit later again
+		minetest.get_node_timer(pos):start(math.random(240, 600))
+		return
+	end
+
+	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_med_pinetree_0_90.mts", "0", nil, true)
+end 
+
+
 -- pine trunk
 minetest.register_node("naturalbiomes:pine_trunk", {
 	description = ("Pine Trunk"),
@@ -294,14 +315,13 @@ minetest.register_node("naturalbiomes:pine_leaves", {
 minetest.register_node("naturalbiomes:pine_sapling", {
   description = ("Pine Sapling"),
   drawtype = "plantlike",
-  visual_scale = 1.0,
   tiles = {"naturalbiomes_mediterran_pine_sapling.png"},
   inventory_image = "naturalbiomes_mediterran_pine_sapling.png",
   wield_image = "naturalbiomes_mediterran_pine_sapling.png",
   paramtype = "light",
   sunlight_propagates = true,
   walkable = false,
-  on_timer = default.grow_sapling,
+  on_timer = grow_new_pine_tree,
   selection_box = {
     type = "fixed",
     fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -310,37 +330,22 @@ minetest.register_node("naturalbiomes:pine_sapling", {
     attached_node = 1, sapling = 1},
   sounds = default.node_sound_leaves_defaults(),
 
-  on_construct = function(pos)
-    minetest.get_node_timer(pos):start(math.random(2400,4800))
-  end,
+	on_construct = function(pos)
+		minetest.get_node_timer(pos):start(math.random(300, 1500))
+	end,
 
   on_place = function(itemstack, placer, pointed_thing)
-  minetest.log("action", ("Pine sapling placed."))
     itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
       "naturalbiomes:pine_sapling",
-      -- minp, maxp to be checked, relative to sapling pos
-      -- minp_relative.y = 1 because sapling pos has been checked
-      {x = -2, y = 1, z = -2},
-      {x = 2, y = 13, z = 2},
-      -- maximum interval of interior volume check
-      4)
+			-- minp, maxp to be checked, relative to sapling pos
+			{x = -1, y = 0, z = -1},
+			{x = 1, y = 1, z = 1},
+			-- maximum interval of interior volume check
+			2)
 
     return itemstack
   end,
 })
-
-
-
--- Tree generation
---
-
--- New pine tree
-
-function default.grow_new_pine_tree(pos)
-  local path = naturalbiomes.path .. "/schematics/naturalbiomes_med_pinetree_0_90.mts"
-  minetest.place_schematic({x = pos.x - 3, y = pos.y, z = pos.z - 3},
-    path, "0", nil, false)
-end 
 
     stairs.register_stair_and_slab(
       "naturalbiomes_mediterran_pine_wood",
@@ -434,6 +439,19 @@ minetest.register_decoration({
 
 	-- Cypress Bush
 
+-- New cypress tree
+
+local function grow_new_cypress_tree(pos)
+	if not default.can_grow(pos) then
+		-- try a bit later again
+		minetest.get_node_timer(pos):start(math.random(240, 600))
+		return
+	end
+
+	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_cypress_0_90.mts", "0", nil, true)
+end 
+
+
 	minetest.register_decoration({
 		name = "naturalbiomes:med_bush",
 		deco_type = "schematic",
@@ -499,7 +517,7 @@ minetest.register_node("naturalbiomes:med_bush_sapling", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	on_timer = grow_sapling,
+	on_timer = grow_new_cypress_tree,
 	selection_box = {
 		type = "fixed",
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16}
