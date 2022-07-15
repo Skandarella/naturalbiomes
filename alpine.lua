@@ -491,7 +491,7 @@ minetest.register_node("naturalbiomes:alpine_bush_sapling", {
 
 	on_place = function(itemstack, placer, pointed_thing)
 		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-			"default:alpine_bush_sapling",
+			"naturalbiomes:alpine_bush_sapling",
 			-- minp, maxp to be checked, relative to sapling pos
 			{x = -1, y = 0, z = -1},
 			{x = 1, y = 1, z = 1},
