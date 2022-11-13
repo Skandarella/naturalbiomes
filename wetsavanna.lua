@@ -43,9 +43,11 @@ local function grow_new_acacia_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 7, y = pos.y - 0, z = pos.z - 7}, modpath.."/schematics/naturalbiomes_acaciatree_0_180.mts", "0", nil, false)
 
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_acaciatree_0_180.mts", "0", nil, true)
-end 
+end
+
 
 -- acacia trunk
 minetest.register_node("naturalbiomes:acacia_trunk", {

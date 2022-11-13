@@ -5,8 +5,8 @@ local mg_name = minetest.get_mapgen_setting("mg_name")
 
 minetest.register_node("naturalbiomes:alpine_litter", {
 	description = ("Dirt with Alpine Grass"),
-	tiles = {"naturalbiomes_alpine_litter.png", "naturalbiomes_alpine_rock.png",
-		{name = "naturalbiomes_alpine_rock.png^naturalbiomes_alpine_litter_side.png",
+	tiles = {"naturalbiomes_alpine_litter.png", "default_dirt.png",
+		{name = "default_dirt.png^naturalbiomes_alpine_litter_side.png",
 			tileable_vertical = false}},
 	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
 	drop = "naturalbiomes:alpine_rock",
@@ -36,9 +36,9 @@ minetest.register_biome({
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
     y_max = 31000,
-    y_min = 40,
-    heat_point = 56,
-    humidity_point = 61,
+    y_min = 30,
+    heat_point = 55,
+    humidity_point = 60,
 })
 
 -- Tree generation
@@ -52,8 +52,8 @@ local function grow_new_alppine1_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_alpine_pine1_0_90.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 5, y = pos.y - 0, z = pos.z - 5}, modpath.."/schematics/naturalbiomes_alpine_pine1_0_90.mts", "0", nil, false)
 end 
 
 -- Pine1 trunk
@@ -218,7 +218,7 @@ minetest.register_decoration({
     fill_ratio = 0.00315,
     biomes = {"naturalbiomes:alpine"},
     y_max = 31000,
-    y_min = 40,
+    y_min = 30,
     schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_alpine_pine1_0_90.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
@@ -235,8 +235,8 @@ local function grow_new_alppine2_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_alpine_pine2_0_90.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 3, y = pos.y - 0, z = pos.z - 3}, modpath.."/schematics/naturalbiomes_alpine_pine2_0_90.mts", "0", nil, false)
 end 
 
 -- Pine2 trunk
@@ -401,7 +401,7 @@ minetest.register_decoration({
     fill_ratio = 0.00715,
     biomes = {"naturalbiomes:alpine"},
     y_max = 31000,
-    y_min = 40,
+    y_min = 30,
     schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_alpine_pine2_0_90.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
@@ -410,27 +410,26 @@ minetest.register_decoration({
 -- Tree generation
 --
 
--- New alpine bush
+-- New cowberry bush
 
-local function grow_new_alpine_bush(pos)
+local function grow_new_outback_bush(pos)
 	if not default.can_grow(pos) then
 		-- try a bit later again
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_alpine_berrybush_0_90.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 2, y = pos.y - 0, z = pos.z - 2}, modpath.."/schematics/naturalbiomes_alpine_cowberrybush.mts", "0", nil, false)
 end 
 
-	-- Alpine bush
-
 	minetest.register_decoration({
-		name = "naturalbiomes:alpine_bush",
+		name = "naturalbiomes:cowberry_bush",
 		deco_type = "schematic",
 		place_on = {"naturalbiomes:alpine_litter"},
+    place_offset_y = 1,
 		sidelen = 16,
 		noise_params = {
-			offset = -0.004,
+offset = -0.004,
 			scale = 0.01,
 			spread = {x = 100, y = 100, z = 100},
 			seed = 697,
@@ -438,65 +437,58 @@ end
 			persist = 0.7,
 		},
 		biomes = {"naturalbiomes:alpine"},
-		y_max = 31000,
-		y_min = 40,
-		place_offset_y = 1,
-		schematic = minetest.get_modpath("naturalbiomes") .. "/schematics/naturalbiomes_alpine_berrybush_0_90.mts",
+    y_max = 31000,
+    y_min = 30,
+		schematic = minetest.get_modpath("naturalbiomes") .. "/schematics/naturalbiomes_alpine_cowberrybush.mts",
 		flags = "place_center_x, place_center_z",
 	})
 
-minetest.register_node("naturalbiomes:alpine_bush_leaves_with_berries", {
-	description = ("Alpine Bush Leaves with Berries"),
-	drawtype = "allfaces_optional",
-	tiles = {"default_blueberry_bush_leaves.png^default_blueberry_overlay.png"},
+minetest.register_node("naturalbiomes:alpine_cowberrybush_stem", {
+	description = ("Cowberry Bush Stem"),
+	drawtype = "plantlike",
+	visual_scale = 1.41,
+	tiles = {"naturalbiomes_alpine_cowberry_stem.png"},
+	inventory_image = "naturalbiomes_alpine_cowberry_stem.png",
+	wield_image = "naturalbiomes_alpine_cowberry_stem.png",
 	paramtype = "light",
-	groups = {snappy = 3, flammable = 2, leaves = 1, dig_immediate = 3},
-	drop = "default:blueberries",
-	sounds = default.node_sound_leaves_defaults(),
-	node_dig_prediction = "default:blueberry_bush_leaves",
-
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		minetest.set_node(pos, {name = "default:blueberry_bush_leaves"})
-		minetest.get_node_timer(pos):start(math.random(300, 1500))
-	end,
+	sunlight_propagates = true,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.5, 7 / 16},
+	},
 })
 
-minetest.register_node("naturalbiomes:alpine_bush_leaves", {
-	description = ("Alpine Bush Leaves"),
+minetest.register_node("naturalbiomes:alpine_cowberrybush_leaves", {
+	description = ("Cowberry Bush Leaves"),
 	drawtype = "allfaces_optional",
-	tiles = {"default_blueberry_bush_leaves.png"},
+	tiles = {"naturalbiomes_alpine_cowberry_leaves.png"},
 	paramtype = "light",
 	groups = {snappy = 3, flammable = 2, leaves = 1},
 	drop = {
 		max_items = 1,
 		items = {
-			{items = {"default:blueberry_bush_sapling"}, rarity = 5},
-			{items = {"default:blueberry_bush_leaves"}}
+			{items = {"naturalbiomes:alpine_cowberrybush_sapling"}, rarity = 5},
+			{items = {"naturalbiomes:cowberry"}, rarity = 2},
+			{items = {"naturalbiomes:alpine_cowberrybush_leaves"}}
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	on_timer = function(pos, elapsed)
-		if minetest.get_node_light(pos) < 11 then
-			minetest.get_node_timer(pos):start(200)
-		else
-			minetest.set_node(pos, {name = "default:blueberry_bush_leaves_with_berries"})
-		end
-	end,
-
 	after_place_node = after_place_leaves,
 })
 
-minetest.register_node("naturalbiomes:alpine_bush_sapling", {
-	description = ("Alpine Bush Sapling"),
+minetest.register_node("naturalbiomes:alpine_cowberrybush_sapling", {
+	description = ("Cowberry Bush Sapling"),
 	drawtype = "plantlike",
-	tiles = {"default_blueberry_bush_sapling.png"},
-	inventory_image = "default_blueberry_bush_sapling.png",
-	wield_image = "default_blueberry_bush_sapling.png",
+	tiles = {"naturalbiomes_alpine_cowberry_sapling.png"},
+	inventory_image = "naturalbiomes_alpine_cowberry_sapling.png",
+	wield_image = "naturalbiomes_alpine_cowberry_sapling.png",
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	on_timer = grow_sapling,
+	on_timer = grow_new_outback_bush,
 	selection_box = {
 		type = "fixed",
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16}
@@ -511,7 +503,7 @@ minetest.register_node("naturalbiomes:alpine_bush_sapling", {
 
 	on_place = function(itemstack, placer, pointed_thing)
 		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-			"naturalbiomes:alpine_bush_sapling",
+			"naturalbiomes:alpine_cowberrybush_sapling",
 			-- minp, maxp to be checked, relative to sapling pos
 			{x = -1, y = 0, z = -1},
 			{x = 1, y = 1, z = 1},
@@ -520,6 +512,33 @@ minetest.register_node("naturalbiomes:alpine_bush_sapling", {
 
 		return itemstack
 	end,
+})
+
+minetest.register_node("naturalbiomes:cowberry", {
+	description = ("Cowberry"),
+	drawtype = "torchlike",
+	tiles = {"naturalbiomes_alpine_cowberry_fruit.png"},
+	inventory_image = "naturalbiomes_alpine_cowberry_fruit.png",
+	wield_image = "naturalbiomes_alpine_cowberry_fruit.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.31, -0.5, -0.31, 0.31, 0.5, 0.31}
+	},
+	groups = {
+		fleshy = 3, dig_immediate = 3, flammable = 2,
+		leafdecay = 1, leafdecay_drop = 1
+	},
+	drop = "naturalbiomes_alpine_cowberry_fruit",
+	on_use = minetest.item_eat(2),
+	sounds = default.node_sound_leaves_defaults(),
+	after_place_node = function(pos, placer)
+		if placer:is_player() then
+			minetest.set_node(pos, {name = "naturalbiomes:cowberry", param2 = 1})
+		end
+	end
 })
 
 	minetest.register_decoration({
@@ -536,7 +555,7 @@ minetest.register_node("naturalbiomes:alpine_bush_sapling", {
 			persist = 0.6
 		},
 		y_max = 31000,
-		y_min = 40,
+		y_min = 30,
 		decoration = "naturalbiomes:alpine_mushroom",
 		spawn_by = "naturalbiomes:alpine_litter",
 

@@ -6,7 +6,7 @@ local mg_name = minetest.get_mapgen_setting("mg_name")
 minetest.register_node("naturalbiomes:palmbeach_sand", {
 	description = ("Beach Sand"),
 	tiles = {"naturalbiomes_beach_sand.png"},
-	groups = {crumbly = 3, soil = 1, falling_node = 1},
+	groups = {crumbly = 3, sand = 1, falling_node = 1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -138,8 +138,8 @@ local function grow_new_palm_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_cocopalm_tree_0_270.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 4, y = pos.y - 0, z = pos.z - 4}, modpath.."/schematics/naturalbiomes_cocopalm_tree_0_270.mts", "0", nil, false)
 end 
 
 
@@ -321,8 +321,8 @@ local function grow_new_palm_bush(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_beach_bush_0_270.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 1, y = pos.y - 0, z = pos.z - 1}, modpath.."/schematics/naturalbiomes_beach_bush_0_270.mts", "0", nil, false)
 end 
 
 	minetest.register_decoration({

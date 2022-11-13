@@ -67,8 +67,8 @@ local function grow_new_olive_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_olive_tree_0_90.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 5, y = pos.y - 0, z = pos.z - 5}, modpath.."/schematics/naturalbiomes_olive_tree2_0_90.mts", "0", nil, false)
 end 
 
 -- olive trunk
@@ -234,7 +234,7 @@ minetest.register_decoration({
     biomes = {"naturalbiomes:mediterranean"},
     y_max = 31000,
     y_min = 1,
-    schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_olive_tree_0_90.mts",
+    schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_olive_tree2_0_90.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
 })
@@ -250,8 +250,8 @@ local function grow_new_pine_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_med_pinetree_0_90.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 9, y = pos.y - 0, z = pos.z - 8}, modpath.."/schematics/naturalbiomes_med_pinetree_0_90.mts", "0", nil, false)
 end 
 
 
@@ -447,8 +447,8 @@ local function grow_new_cypress_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_cypress_0_90.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 2, y = pos.y - 0, z = pos.z - 2}, modpath.."/schematics/naturalbiomes_cypress_0_90.mts", "0", nil, false)
 end 
 
 

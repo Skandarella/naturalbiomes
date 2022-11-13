@@ -18,7 +18,7 @@ minetest.register_node("naturalbiomes:bambooforest_litter", {
 minetest.register_biome({
     name = "bambooforest",
     node_top = "naturalbiomes:bambooforest_litter",
-    depth_top = 2,
+    depth_top = 1,
     node_filler = "naturalbiomes:bambooforest_rock",
     depth_filler = 70,
 		node_riverbed = "default:clay",
@@ -43,8 +43,8 @@ local function grow_new_bamboo_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_bambootree_large_0_270.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 3, y = pos.y - 0, z = pos.z - 3}, modpath.."/schematics/naturalbiomes_bambootree_large_0_270.mts", "0", nil, false)
 end 
 
 -- bamboo trunk
@@ -145,8 +145,8 @@ minetest.register_node("naturalbiomes:bamboo_sapling", {
       "naturalbiomes:bamboo_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_bambooforest_bamboo_wood2.png"},
-      ("Alder Stair"),
-      ("Alder Slab"),
+      ("Bamboo Stair"),
+      ("Bamboo Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -370,8 +370,8 @@ local function grow_new_banana_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_banana_palm_0_90.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 4, y = pos.y - 0, z = pos.z - 3}, modpath.."/schematics/naturalbiomes_banana_palm_0_90.mts", "0", nil, false)
 end 
 
 -- banana trunk

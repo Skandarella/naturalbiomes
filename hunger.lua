@@ -23,4 +23,8 @@ if minetest.get_modpath("hunger_ng") ~= nil then
 		satiates = 5.0,
 	})
 
+	hunger_ng.add_hunger_data('naturalbiomes:cowberry', {
+		satiates = 1.0,
+	})
+
 end

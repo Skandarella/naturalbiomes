@@ -58,8 +58,8 @@ local function grow_new_outback_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_outback_tree1_0_90.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 4, y = pos.y - 0, z = pos.z - 4}, modpath.."/schematics/naturalbiomes_outback_tree1_0_90.mts", "0", nil, false)
 end 
 
 -- outback trunk
@@ -170,8 +170,8 @@ minetest.register_node("naturalbiomes:outback_sapling", {
       "naturalbiomes:outback_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_outbackeukalyptus_trunk_top.png", "naturalbiomes_outbackeukalyptus_trunk_top.png", "naturalbiomes_outbackeucalyptus_trunk.png"},
-      ("Alder Trunk Stair"),
-      ("Alder Trunk Slab"),
+      ("Outback Trunk Stair"),
+      ("Outback Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -279,8 +279,8 @@ local function grow_new_outback_bush(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-
-	minetest.place_schematic({x = pos.x, y = pos.y, z = pos.z}, modpath.."/schematics/naturalbiomes_outback_bush_small2_0_270.mts", "0", nil, true)
+minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x - 2, y = pos.y - 0, z = pos.z - 2}, modpath.."/schematics/naturalbiomes_outback_bush_small2_0_270.mts", "0", nil, false)
 end 
 
 	minetest.register_decoration({

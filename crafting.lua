@@ -197,3 +197,50 @@ minetest.register_craft({
 
 	
 })
+
+----
+
+minetest.register_craft({
+	output = "naturalbiomes:alpine_brick_wall",
+	type = "shapeless",
+	recipe = 
+		{"naturalbiomes:alpine_brick", "naturalbiomes:alpine_brick", "naturalbiomes:alpine_brick", "naturalbiomes:alpine_brick", "naturalbiomes:alpine_brick", "naturalbiomes:alpine_brick"}
+
+	
+})
+
+minetest.register_craft({
+	output = "naturalbiomes:bamboo_brick_wall",
+	type = "shapeless",
+	recipe = 
+		{"naturalbiomes:bamboo_brick", "naturalbiomes:bamboo_brick", "naturalbiomes:bamboo_brick", "naturalbiomes:bamboo_brick", "naturalbiomes:bamboo_brick", "naturalbiomes:bamboo_brick"}
+
+	
+})
+
+minetest.register_craft({
+	output = "naturalbiomes:beach_brick",
+	type = "shapeless",
+	recipe = 
+		{"naturalbiomes:beach_brick", "naturalbiomes:beach_brick", "naturalbiomes:beach_brick", "naturalbiomes:beach_brick", "naturalbiomes:beach_brick", "naturalbiomes:beach_brick"}
+
+	
+})
+
+minetest.register_craft({
+	output = "naturalbiomes:med_brick_wall",
+	type = "shapeless",
+	recipe = 
+		{"naturalbiomes:med_brick", "naturalbiomes:med_brick", "naturalbiomes:med_brick", "naturalbiomes:med_brick", "naturalbiomes:med_brick", "naturalbiomes:med_brick"}
+
+	
+})
+
+minetest.register_craft({
+	output = "naturalbiomes:outback_brick_wall",
+	type = "shapeless",
+	recipe = 
+		{"naturalbiomes:outback_brick", "naturalbiomes:outback_brick", "naturalbiomes:outback_brick", "naturalbiomes:outback_brick", "naturalbiomes:outback_brick", "naturalbiomes:outback_brick"}
+
+	
+})
