@@ -58,7 +58,7 @@ end
 
 -- Pine1 trunk
 minetest.register_node("naturalbiomes:alppine1_trunk", {
-	description = ("Pine Trunk"),
+	description = ("Silver Fir Trunk"),
 	tiles = {
 		"naturalbiomes_alpine_pine1_trunk_top.png",
 		"naturalbiomes_alpine_pine1_trunk_top.png",
@@ -72,7 +72,7 @@ minetest.register_node("naturalbiomes:alppine1_trunk", {
 
 -- Pine wood
 minetest.register_node("naturalbiomes:alppine1_wood", {
-	description = ("Pine Wood"),
+	description = ("Silver Fir Wood"),
 	tiles = {"naturalbiomes_alpine_pine1_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -85,7 +85,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:alppine1_leaves", {
-  description = ("Pine Leaves"),
+  description = ("Silver Fir Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_alpine_pine1_leaves.png"},
@@ -114,7 +114,7 @@ minetest.register_node("naturalbiomes:alppine1_leaves", {
 })
 
 minetest.register_node("naturalbiomes:alppine1_sapling", {
-  description = ("Pine Sapling"),
+  description = ("Silver Fir Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_alpine_pine1_sapling.png"},
   inventory_image = "naturalbiomes_alpine_pine1_sapling.png",
@@ -154,8 +154,8 @@ minetest.register_node("naturalbiomes:alppine1_sapling", {
       "naturalbiomes:allpine1_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alpine_pine1_wood.png"},
-      ("Pine Stair"),
-      ("Pine Slab"),
+      ("Silver Fir Stair"),
+      ("Silver Fir Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -164,15 +164,15 @@ minetest.register_node("naturalbiomes:alppine1_sapling", {
       "naturalbiomes:alppine1_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alpine_pine1_trunk_top.png", "naturalbiomes_alpine_pine1_trunk_top.png", "naturalbiomes_alpine_pine1_trunk.png"},
-      ("Pine Trunk Stair"),
-      ("Pine Trunk Slab"),
+      ("Silver Fir Trunk Stair"),
+      ("Silver Fir Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_alppine1_wood",
     {
-      description = ("Pine Wood Fence Gate"),
+      description = ("Silver Fir Wood Fence Gate"),
       texture = "naturalbiomes_alpine_pine1_wood.png",
       material = "naturalbiomes:alppine1_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -184,7 +184,7 @@ minetest.register_node("naturalbiomes:alppine1_sapling", {
 default.register_fence(
   "naturalbiomes:fence_alppine1_wood",
   {
-    description = ("Pine Fence"),
+    description = ("Silver Fir Fence"),
     texture = "naturalbiomes_pine_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_alpine_pine1_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_alpine_pine1_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -197,7 +197,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_alppine1_wood",
   {
-    description = ("Pine Fence Rail"),
+    description = ("Silver Fir Fence Rail"),
     texture = "naturalbiomes_pine_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_alpine_pine1_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -241,7 +241,7 @@ end
 
 -- Pine2 trunk
 minetest.register_node("naturalbiomes:alppine2_trunk", {
-	description = ("Pine Trunk"),
+	description = ("Jack Pine Trunk"),
 	tiles = {
 		"naturalbiomes_alpine_pine2_trunk_top.png",
 		"naturalbiomes_alpine_pine2_trunk_top.png",
@@ -255,7 +255,7 @@ minetest.register_node("naturalbiomes:alppine2_trunk", {
 
 -- Pine2 wood
 minetest.register_node("naturalbiomes:alppine2_wood", {
-	description = ("Pine Wood"),
+	description = ("Jack Pine Wood"),
 	tiles = {"naturalbiomes_alpine_pine2_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -268,7 +268,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:alppine2_leaves", {
-  description = ("Pine Leaves"),
+  description = ("Jack Pine Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_alpine_pine2_leaves.png"},
@@ -297,7 +297,7 @@ minetest.register_node("naturalbiomes:alppine2_leaves", {
 })
 
 minetest.register_node("naturalbiomes:alppine2_sapling", {
-  description = ("Pine Sapling"),
+  description = ("Jack Pine Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_alpine_pine2_sapling.png"},
   inventory_image = "naturalbiomes_alpine_pine2_sapling.png",
@@ -337,8 +337,8 @@ minetest.register_node("naturalbiomes:alppine2_sapling", {
       "naturalbiomes:alppine2_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alpine_pine2_wood.png"},
-      ("Pine Stair"),
-      ("Pine Slab"),
+      ("Jack Pine Stair"),
+      ("Jack Pine Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -347,15 +347,15 @@ minetest.register_node("naturalbiomes:alppine2_sapling", {
       "naturalbiomes:alppine2_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alpine_pine2_trunk_top.png", "naturalbiomes_alpine_pine2_trunk_top.png", "naturalbiomes_alpine_pine2_trunk.png"},
-      ("Pine Trunk Stair"),
-      ("Pine Trunk Slab"),
+      ("Jack Pine Trunk Stair"),
+      ("Jack Pine Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_alppine2_wood",
     {
-      description = ("Pine Wood Fence Gate"),
+      description = ("Jack Pine Wood Fence Gate"),
       texture = "naturalbiomes_alpine_pine2_wood.png",
       material = "naturalbiomes:alppine2_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -367,7 +367,7 @@ minetest.register_node("naturalbiomes:alppine2_sapling", {
 default.register_fence(
   "naturalbiomes:fence_pine2_wood",
   {
-    description = ("Pine Fence"),
+    description = ("Jack Pine Fence"),
     texture = "naturalbiomes_pine2_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_alpine_pine2_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_alpine_pine2_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -380,7 +380,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_pine2_wood",
   {
-    description = ("Pine Fence Rail"),
+    description = ("Jack Pine Fence Rail"),
     texture = "naturalbiomes_pine2_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_alpine_pine2_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",

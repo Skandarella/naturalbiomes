@@ -272,7 +272,7 @@ minetest.register_node("naturalbiomes:smallbamboo", {
 })
 
 minetest.register_node("naturalbiomes:bambooforest_rock", {
-	description = ("Forest Rock"),
+	description = ("Bamboo Forest Rock"),
 	tiles = {"naturalbiomes_bambooforest_rock.png"},
 	groups = {cracky = 3, stone = 1},
 	drop = "naturalbiomes:bambooforest_rock",

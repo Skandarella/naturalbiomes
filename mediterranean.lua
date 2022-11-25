@@ -257,7 +257,7 @@ end
 
 -- pine trunk
 minetest.register_node("naturalbiomes:pine_trunk", {
-	description = ("Pine Trunk"),
+	description = ("Mediterranean Pine Trunk"),
 	tiles = {
 		"naturalbiomes_mediterran_pine_trunk_top.png",
 		"naturalbiomes_mediterran_pine_trunk_top.png",
@@ -271,7 +271,7 @@ minetest.register_node("naturalbiomes:pine_trunk", {
 
 -- pine wood
 minetest.register_node("naturalbiomes:pine_wood", {
-	description = ("Pine Wood"),
+	description = ("Mediterranean Pine Wood"),
 	tiles = {"naturalbiomes_mediterran_pine_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -284,7 +284,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:pine_leaves", {
-  description = ("Pine Leaves"),
+  description = ("Mediterranean Pine Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_mediterran_pine_leaves.png"},
@@ -313,7 +313,7 @@ minetest.register_node("naturalbiomes:pine_leaves", {
 })
 
 minetest.register_node("naturalbiomes:pine_sapling", {
-  description = ("Pine Sapling"),
+  description = ("Mediterranean Pine Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_mediterran_pine_sapling.png"},
   inventory_image = "naturalbiomes_mediterran_pine_sapling.png",
@@ -352,8 +352,8 @@ minetest.register_node("naturalbiomes:pine_sapling", {
       "naturalbiomes:pine_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_mediterran_pine_wood.png"},
-      ("Pine Stair"),
-      ("Pine Slab"),
+      ("Mediterranean Pine Stair"),
+      ("Mediterranean Pine Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -362,15 +362,15 @@ minetest.register_node("naturalbiomes:pine_sapling", {
       "naturalbiomes:pine_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_mediterran_pine_trunk_top.png", "naturalbiomes_mediterran_pine_trunk_top.png", "naturalbiomes_mediterran_pine_wood.png"},
-      ("Pine Trunk Stair"),
-      ("Pine Trunk Slab"),
+      ("Mediterranean Pine Trunk Stair"),
+      ("Mediterranean Pine Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_pine_wood",
     {
-      description = ("Pine Wood Fence Gate"),
+      description = ("Mediterranean Pine Wood Fence Gate"),
       texture = "naturalbiomes_mediterran_pine_wood.png",
       material = "naturalbiomes:pine_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -382,7 +382,7 @@ minetest.register_node("naturalbiomes:pine_sapling", {
 default.register_fence(
   "naturalbiomes:fence_pine_wood",
   {
-    description = ("Pine Fence"),
+    description = ("Mediterranean Pine Fence"),
     texture = "naturalbiomes_medpine_fence_woode.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_mediterran_pine_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_mediterran_pine_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -395,7 +395,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_pine_wood",
   {
-    description = ("Pine Fence Rail"),
+    description = ("Mediterranean Pine Fence Rail"),
     texture = "naturalbiomes_medpine_fence_woode.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_mediterran_pine_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -641,7 +641,7 @@ minetest.register_node("naturalbiomes:med_flower2", {
 	})
 
 minetest.register_node("naturalbiomes:med_flower3", {
-	    description = "Mediterranean Flower",
+	    description = "Lavender",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,

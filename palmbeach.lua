@@ -145,7 +145,7 @@ end
 
 -- palm trunk
 minetest.register_node("naturalbiomes:palm_trunk", {
-	description = ("Palm Trunk"),
+	description = ("Coconut Palm Trunk"),
 	tiles = {
 		"naturalbiomes_savannapalm_trunk_top.png",
 		"naturalbiomes_savannapalm_trunk_top.png",
@@ -159,7 +159,7 @@ minetest.register_node("naturalbiomes:palm_trunk", {
 
 -- palm wood
 minetest.register_node("naturalbiomes:palm_wood", {
-	description = ("Palm Wood"),
+	description = ("Coconut Palm Wood"),
 	tiles = {"naturalbiomes_savannapalm_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -172,7 +172,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:palm_leaves", {
-  description = ("Palm Leaves"),
+  description = ("Coconut Palm Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_savannapalm_leaves.png"},
@@ -201,7 +201,7 @@ minetest.register_node("naturalbiomes:palm_leaves", {
 })
 
 minetest.register_node("naturalbiomes:palm_sapling", {
-  description = ("Palm Sapling"),
+  description = ("Coconut Palm Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_savannapalm_sapling.png"},
   inventory_image = "naturalbiomes_savannapalm_sapling.png",
@@ -241,8 +241,8 @@ minetest.register_node("naturalbiomes:palm_sapling", {
       "naturalbiomes:palm_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_savannapalm_wood.png"},
-      ("Palm Stair"),
-      ("Palm Slab"),
+      ("Coconut Palm Stair"),
+      ("Coconut Palm Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -251,15 +251,15 @@ minetest.register_node("naturalbiomes:palm_sapling", {
       "naturalbiomes:palm_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_savannapalm_trunk_top.png", "naturalbiomes_savannapalm_trunk_top.png", "naturalbiomes_savannapalm_trunk.png"},
-      ("Palm Trunk Stair"),
-      ("Palm Trunk Slab"),
+      ("Coconut Palm Trunk Stair"),
+      ("Coconut Palm Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_palm_wood",
     {
-      description = ("Palm Wood Fence Gate"),
+      description = ("Coconut Palm Wood Fence Gate"),
       texture = "naturalbiomes_savannapalm_wood.png",
       material = "naturalbiomes:palm_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -271,7 +271,7 @@ minetest.register_node("naturalbiomes:palm_sapling", {
 default.register_fence(
   "naturalbiomes:fence_palm_wood",
   {
-    description = ("Palm Fence"),
+    description = ("Coconut Palm Fence"),
     texture = "naturalbiomes_palm_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_savannapalm_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_savannapalm_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -284,7 +284,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_palm_wood",
   {
-    description = ("Palm Fence Rail"),
+    description = ("Coconut Palm Fence Rail"),
     texture = "naturalbiomes_palm_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_savannapalm_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",

@@ -219,11 +219,41 @@ minetest.register_decoration({
     place_on = {"naturalbiomes:alderswamp_litter"},
     place_offset_y = 0,
     sidelen = 16,
-    fill_ratio = 0.02115,
+    fill_ratio = 0.01115,
     biomes = {"naturalbiomes:alderswamp"},
     y_max = 5,
     y_min = 1,
     schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_aldertree_0_270.mts",
+	flags = "place_center_x, place_center_z",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+    name = "naturalbiomes:alder_tree2",
+    deco_type = "schematic",
+    place_on = {"naturalbiomes:alderswamp_litter"},
+    place_offset_y = 0,
+    sidelen = 16,
+    fill_ratio = 0.00615,
+    biomes = {"naturalbiomes:alderswamp"},
+    y_max = 5,
+    y_min = 1,
+    schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_aldertree2_0_270.mts",
+	flags = "place_center_x, place_center_z",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+    name = "naturalbiomes:alder_tree3",
+    deco_type = "schematic",
+    place_on = {"naturalbiomes:alderswamp_litter"},
+    place_offset_y = 0,
+    sidelen = 16,
+    fill_ratio = 0.00615,
+    biomes = {"naturalbiomes:alderswamp"},
+    y_max = 5,
+    y_min = 1,
+    schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_aldertree3_0_270.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
 })
