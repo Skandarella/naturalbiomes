@@ -20,13 +20,13 @@ default.register_leafdecay({
 default.register_leafdecay({
 	trunks = {"naturalbiomes:bamboo_trunk"},
 	leaves = {"naturalbiomes:bamboo_leaves"},
-	radius = 6
+	radius = 4
 })
 
 default.register_leafdecay({
 	trunks = {"naturalbiomes:banana_trunk"},
 	leaves = {"naturalbiomes:banana_leaves", "naturalbiomes:banana", "naturalbiomes:banana_bunch"},
-	radius = 6
+	radius = 4
 })
 
 default.register_leafdecay({
@@ -38,7 +38,7 @@ default.register_leafdecay({
 default.register_leafdecay({
 	trunks = {"naturalbiomes:pine_trunk"},
 	leaves = {"naturalbiomes:pine_leaves"},
-	radius = 6
+	radius = 8
 })
 
 default.register_leafdecay({
@@ -74,12 +74,12 @@ default.register_leafdecay({
 default.register_leafdecay({
 	trunks = {"naturalbiomes:acacia_trunk"},
 	leaves = {"naturalbiomes:acacia_leaves"},
-	radius = 6
+	radius = 7
 })
 
 default.register_leafdecay({
 	trunks = {"naturalbiomes:heath_willow_trunk"},
-	leaves = {"naturalbiomes:heath_willow_leaves"},
+	leaves = {"naturalbiomes:heath_willow_leaves2"},
 	radius = 6
 })
 
