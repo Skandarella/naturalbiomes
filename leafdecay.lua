@@ -44,7 +44,7 @@ default.register_leafdecay({
 default.register_leafdecay({
 	trunks = {"naturalbiomes:med_bush_stem"},
 	leaves = {"naturalbiomes:med_bush_leaves"},
-	radius = 6
+	radius = 16
 })
 
 default.register_leafdecay({

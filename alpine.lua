@@ -531,7 +531,7 @@ minetest.register_node("naturalbiomes:cowberry", {
 		fleshy = 3, dig_immediate = 3, flammable = 2,
 		leafdecay = 1, leafdecay_drop = 1
 	},
-	drop = "naturalbiomes_alpine_cowberry_fruit",
+	drop = "naturalbiomes:cowberry",
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer)
