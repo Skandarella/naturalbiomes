@@ -1,10 +1,11 @@
+local S = minetest.get_translator("naturalbiomes")
 
 local modname = "naturalbiomes"
 local modpath = minetest.get_modpath(modname)
 local mg_name = minetest.get_mapgen_setting("mg_name")
 
 minetest.register_node("naturalbiomes:bambooforest_litter", {
-	description = ("Bamboo Forest Litter"),
+	description = S("Bamboo Forest Litter"),
 	tiles = {"naturalbiomes_bambooforest_litter.png", "naturalbiomes_bambooforest_rock.png",
 		{name = "naturalbiomes_bambooforest_rock.png^naturalbiomes_bambooforest_litter_side.png",
 			tileable_vertical = false}},
@@ -49,7 +50,7 @@ end
 
 -- bamboo trunk
 minetest.register_node("naturalbiomes:bamboo_trunk", {
-	description = ("Bamboo Trunk"),
+	description = S("Bamboo Trunk"),
 	tiles = {
 		"naturalbiomes_bambooforest_bamboo_trunk_top.png",
 		"naturalbiomes_bambooforest_bamboo_trunk_top.png",
@@ -63,7 +64,7 @@ minetest.register_node("naturalbiomes:bamboo_trunk", {
 
 -- bamboo wood
 minetest.register_node("naturalbiomes:bamboo_wood", {
-	description = ("Bamboo Wood"),
+	description = S("Bamboo Wood"),
 	tiles = {"naturalbiomes_bambooforest_bamboo_wood2.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -76,21 +77,21 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:bamboo_leaves", {
-  description = ("Bamboo Leaves"),
+  description = S("Bamboo Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_Bambooforest_bamboo_leaves.png"},
   special_tiles = {"naturalbiomes_Bambooforest_bamboo_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
       {
         -- player will get sapling with 1/50 chance
         items = {'naturalbiomes:bamboo_sapling'},
-        rarity = 50,
+        rarity = 10,
       },
       {
         -- player will get leaves only if he get no saplings,
@@ -105,7 +106,7 @@ minetest.register_node("naturalbiomes:bamboo_leaves", {
 })
 
 minetest.register_node("naturalbiomes:bamboo_sapling", {
-  description = ("Bamboo Sapling"),
+  description = S("Bamboo Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_bambooforest_bamboo_sapling.png"},
   inventory_image = "naturalbiomes_bambooforest_bamboo_sapling.png",
@@ -145,8 +146,8 @@ minetest.register_node("naturalbiomes:bamboo_sapling", {
       "naturalbiomes:bamboo_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_bambooforest_bamboo_wood2.png"},
-      ("Bamboo Stair"),
-      ("Bamboo Slab"),
+      S("Bamboo Stair"),
+      S("Bamboo Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -155,15 +156,15 @@ minetest.register_node("naturalbiomes:bamboo_sapling", {
       "naturalbiomes:bamboo_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_bambooforest_bamboo_trunk_top.png", "naturalbiomes_bambooforest_bamboo_trunk_top.png", "naturalbiomes_bambooforest_bamboo_trunk.png"},
-      ("Bamboo Trunk Stair"),
-      ("Bamboo Trunk Slab"),
+      S("Bamboo Trunk Stair"),
+      S("Bamboo Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_bamboo_wood",
     {
-      description = ("Bamboo Wood Fence Gate"),
+      description = S("Bamboo Wood Fence Gate"),
       texture = "naturalbiomes_bambooforest_bamboo_wood2.png",
       material = "naturalbiomes:bamboo_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -175,7 +176,7 @@ minetest.register_node("naturalbiomes:bamboo_sapling", {
 default.register_fence(
   "naturalbiomes:fence_bamboo_wood",
   {
-    description = ("Bamboo Fence"),
+    description = S("Bamboo Fence"),
     texture = "naturalbiomes_bamboo_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_bambooforest_bamboo_wood2.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_bambooforest_bamboo_wood2.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -188,7 +189,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_bamboo_wood",
   {
-    description = ("Bamboo Fence Rail"),
+    description = S("Bamboo Fence Rail"),
     texture = "naturalbiomes_bamboo_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_bambooforest_bamboo_wood2.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -251,7 +252,7 @@ minetest.register_decoration({
 	})
 
 minetest.register_node("naturalbiomes:smallbamboo", {
-	description = ("Small Bamboo Grass"),
+	description = S("Small Bamboo Grass"),
 	drawtype = "plantlike",
 	tiles = {"naturalbiomes_bambooforest_bamboo_trunksmall.png"},
 	inventory_image = "naturalbiomes_bambooforest_bamboo_trunksmall.png",
@@ -272,7 +273,7 @@ minetest.register_node("naturalbiomes:smallbamboo", {
 })
 
 minetest.register_node("naturalbiomes:bambooforest_rock", {
-	description = ("Bamboo Forest Rock"),
+	description = S("Bamboo Forest Rock"),
 	tiles = {"naturalbiomes_bambooforest_rock.png"},
 	groups = {cracky = 3, stone = 1},
 	drop = "naturalbiomes:bambooforest_rock",
@@ -300,7 +301,7 @@ minetest.register_node("naturalbiomes:bambooforest_rock", {
 	})
 
 minetest.register_node("naturalbiomes:bambooforest_groundgrass", {
-	    description = "Babmooforest Gorund Grass",
+	    description = S"Babmooforest Gorund Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -339,7 +340,7 @@ minetest.register_node("naturalbiomes:bambooforest_groundgrass", {
 	})
 
 minetest.register_node("naturalbiomes:bambooforest_groundgrass2", {
-	    description = "Babmooforest Gorund Grass",
+	    description = S"Babmooforest Gorund Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -376,7 +377,7 @@ end
 
 -- banana trunk
 minetest.register_node("naturalbiomes:banana_trunk", {
-	description = ("Banana Trunk"),
+	description = S("Banana Trunk"),
 	tiles = {
 		"naturalbiomes__banana_trunk_top.png",
 		"naturalbiomes__banana_trunk_top.png",
@@ -390,7 +391,7 @@ minetest.register_node("naturalbiomes:banana_trunk", {
 
 -- banana wood
 minetest.register_node("naturalbiomes:banana_wood", {
-	description = ("Banana Wood"),
+	description = S("Banana Wood"),
 	tiles = {"naturalbiomes__banana_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -403,21 +404,21 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:banana_leaves", {
-  description = ("Banana Leaves"),
+  description = S("Banana Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes__banana_leaf.png"},
   special_tiles = {"naturalbiomes__banana_leaf.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
       {
         -- player will get sapling with 1/50 chance
         items = {'naturalbiomes:banana_sapling'},
-        rarity = 50,
+        rarity = 10,
       },
       {
         -- player will get leaves only if he get no saplings,
@@ -432,7 +433,7 @@ minetest.register_node("naturalbiomes:banana_leaves", {
 })
 
 minetest.register_node("naturalbiomes:banana_sapling", {
-  description = ("Banana Sapling"),
+  description = S("Banana Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes__banana_tree_sapling.png"},
   inventory_image = "naturalbiomes__banana_tree_sapling.png",
@@ -472,8 +473,8 @@ minetest.register_node("naturalbiomes:banana_sapling", {
       "naturalbiomes:banana_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_banana_wood.png"},
-      ("Banana Stair"),
-      ("Banana Slab"),
+      S("Banana Stair"),
+      S("Banana Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -482,15 +483,15 @@ minetest.register_node("naturalbiomes:banana_sapling", {
       "naturalbiomes:banana_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_banana_trunk_top.png", "naturalbiomes_banana_trunk_top.png", "naturalbiomes_banana_trunk.png"},
-      ("Banana Trunk Stair"),
-      ("Banana Trunk Slab"),
+      S("Banana Trunk Stair"),
+      S("Banana Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_banana_wood",
     {
-      description = ("Banana Wood Fence Gate"),
+      description = S("Banana Wood Fence Gate"),
       texture = "naturalbiomes_banana_wood.png",
       material = "naturalbiomes:banana_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -502,7 +503,7 @@ minetest.register_node("naturalbiomes:banana_sapling", {
 default.register_fence(
   "naturalbiomes:fence_banana_wood",
   {
-    description = ("Banana Fence"),
+    description = S("Banana Fence"),
     texture = "naturalbiomes_banana_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_banana_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_banana_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -515,7 +516,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_banana_wood",
   {
-    description = ("Banana Fence Rail"),
+    description = S("Banana Fence Rail"),
     texture = "naturalbiomes_banana_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_banana_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",

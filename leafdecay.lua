@@ -94,3 +94,21 @@ default.register_leafdecay({
 	leaves = {"naturalbiomes:heath_birch_leaves"},
 	radius = 6
 })
+
+default.register_leafdecay({
+	trunks = {"naturalbiomes:bushland_hazelnut_stem"},
+	leaves = {"naturalbiomes:bushland_hazelnut_leaves", "naturalbiomes:bushland_hazelnut_leaves2"},
+	radius = 4
+})
+
+default.register_leafdecay({
+	trunks = {"naturalbiomes:bushland_wildrose_stem"},
+	leaves = {"naturalbiomes:bushland_wildrose_leaves2", "naturalbiomes:bushland_wildrose_leaves"},
+	radius = 4
+})
+
+default.register_leafdecay({
+	trunks = {"naturalbiomes:bushland_blackberry_stem"},
+	leaves = {"naturalbiomes:bushland_blackberry_leaves2", "naturalbiomes:bushland_blackberry_leaves"},
+	radius = 4
+})

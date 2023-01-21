@@ -41,6 +41,7 @@ dofile(path .. "mediterranean.lua") --
 dofile(path .. "crafting.lua") --
 dofile(path .. "heath.lua") --
 dofile(path .. "dye.lua") --
+dofile(path .. "bushland.lua") --
 dofile(path .. "leafdecay.lua") --
 dofile(path .. "hunger.lua") --
 

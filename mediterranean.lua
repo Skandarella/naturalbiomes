@@ -1,10 +1,11 @@
+local S = minetest.get_translator("naturalbiomes")
 
 local modname = "naturalbiomes"
 local modpath = minetest.get_modpath(modname)
 local mg_name = minetest.get_mapgen_setting("mg_name")
 
 minetest.register_node("naturalbiomes:mediterran_litter", {
-	description = ("Mediterranean litter with grass"),
+	description = S("Mediterranean litter with grass"),
 	tiles = {"naturalbiomes_mediterran_litter.png", "default_dirt.png",
 		{name = "default_dirt.png^naturalbiomes_mediterran_litte_side.png",
 			tileable_vertical = false}},
@@ -16,7 +17,7 @@ minetest.register_node("naturalbiomes:mediterran_litter", {
 })
 
 minetest.register_node("naturalbiomes:mediterran_rock", {
-	description = ("Mediterranean Rock"),
+	description = S("Mediterranean Rock"),
 	tiles = {"naturalbiomes_mediterran_rock.png"},
 	groups = {cracky = 3, stone = 1},
 legacy_mineral = true,
@@ -24,7 +25,7 @@ legacy_mineral = true,
 })
 
 minetest.register_node("naturalbiomes:mediterran_ruin", {
-	description = ("Mediterranean Ruin"),
+	description = S("Mediterranean Ruin"),
 	tiles = {"naturalbiomes_mediterran_ruins.png"},
 	groups = {cracky = 3, stone = 1},
 legacy_mineral = true,
@@ -32,7 +33,7 @@ legacy_mineral = true,
 })
 
 minetest.register_node("naturalbiomes:mediterran_ruin2", {
-	description = ("Mediterranean Ruin Column"),
+	description = S("Mediterranean Ruin Column"),
 	tiles = {"naturalbiomes_mediterran_ruins2.png"},
 	groups = {cracky = 3, stone = 1},
 legacy_mineral = true,
@@ -73,7 +74,7 @@ end
 
 -- olive trunk
 minetest.register_node("naturalbiomes:olive_trunk", {
-	description = ("Olive Trunk"),
+	description = S("Olive Trunk"),
 	tiles = {
 		"naturalbiomes_mediterran_olive_trunk_top.png",
 		"naturalbiomes_mediterran_olive_trunk_top.png",
@@ -87,7 +88,7 @@ minetest.register_node("naturalbiomes:olive_trunk", {
 
 -- olive wood
 minetest.register_node("naturalbiomes:olive_wood", {
-	description = ("Olive Wood"),
+	description = S("Olive Wood"),
 	tiles = {"naturalbiomes_mediterran_olive_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -100,14 +101,14 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:olive_leaves", {
-  description = ("Olive Leaves"),
+  description = S("Olive Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_mediterran_olive_leaves.png"},
   special_tiles = {"naturalbiomes_mediterran_olive_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
@@ -129,7 +130,7 @@ minetest.register_node("naturalbiomes:olive_leaves", {
 })
 
 minetest.register_node("naturalbiomes:olive_sapling", {
-  description = ("Olive Sapling"),
+  description = S("Olive Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_mediterran_olive_sapling.png"},
   inventory_image = "naturalbiomes_mediterran_olive_sapling.png",
@@ -169,8 +170,8 @@ minetest.register_node("naturalbiomes:olive_sapling", {
       "naturalbiomes:olive_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_mediterran_olive_wood.png"},
-      ("Olive Stair"),
-      ("Olive Slab"),
+      S("Olive Stair"),
+      S("Olive Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -179,15 +180,15 @@ minetest.register_node("naturalbiomes:olive_sapling", {
       "naturalbiomes:olive_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_mediterran_olive_trunk_top.png", "naturalbiomes_mediterran_olive_trunk_top.png", "naturalbiomes_mediterran_olive_trunk.png"},
-      ("Alder Trunk Stair"),
-      ("Alder Trunk Slab"),
+      S("Alder Trunk Stair"),
+      S("Alder Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_olive_wood",
     {
-      description = ("Olive Wood Fence Gate"),
+      description = S("Olive Wood Fence Gate"),
       texture = "naturalbiomes_mediterran_olive_wood.png",
       material = "naturalbiomes:olive_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -199,7 +200,7 @@ minetest.register_node("naturalbiomes:olive_sapling", {
 default.register_fence(
   "naturalbiomes:fence_olive_wood",
   {
-    description = ("Olive Fence"),
+    description = S("Olive Fence"),
     texture = "naturalbiomes_olive_fence_woode.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_mediterran_olive_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_mediterran_olive_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -212,7 +213,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_olive_wood",
   {
-    description = ("Olive Fence Rail"),
+    description = S("Olive Fence Rail"),
     texture = "naturalbiomes_olive_fence_woode.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_mediterran_olive_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -257,7 +258,7 @@ end
 
 -- pine trunk
 minetest.register_node("naturalbiomes:pine_trunk", {
-	description = ("Mediterranean Pine Trunk"),
+	description = S("Mediterranean Pine Trunk"),
 	tiles = {
 		"naturalbiomes_mediterran_pine_trunk_top.png",
 		"naturalbiomes_mediterran_pine_trunk_top.png",
@@ -271,7 +272,7 @@ minetest.register_node("naturalbiomes:pine_trunk", {
 
 -- pine wood
 minetest.register_node("naturalbiomes:pine_wood", {
-	description = ("Mediterranean Pine Wood"),
+	description = S("Mediterranean Pine Wood"),
 	tiles = {"naturalbiomes_mediterran_pine_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -284,14 +285,14 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:pine_leaves", {
-  description = ("Mediterranean Pine Leaves"),
+  description = S("Mediterranean Pine Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_mediterran_pine_leaves.png"},
   special_tiles = {"naturalbiomes_mediterran_pine_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
@@ -313,7 +314,7 @@ minetest.register_node("naturalbiomes:pine_leaves", {
 })
 
 minetest.register_node("naturalbiomes:pine_sapling", {
-  description = ("Mediterranean Pine Sapling"),
+  description = S("Mediterranean Pine Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_mediterran_pine_sapling.png"},
   inventory_image = "naturalbiomes_mediterran_pine_sapling.png",
@@ -352,8 +353,8 @@ minetest.register_node("naturalbiomes:pine_sapling", {
       "naturalbiomes:pine_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_mediterran_pine_wood.png"},
-      ("Mediterranean Pine Stair"),
-      ("Mediterranean Pine Slab"),
+      S("Mediterranean Pine Stair"),
+      S("Mediterranean Pine Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -361,16 +362,16 @@ minetest.register_node("naturalbiomes:pine_sapling", {
       "naturalbiomes_mediterran_pine_trunk",
       "naturalbiomes:pine_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-      {"naturalbiomes_mediterran_pine_trunk_top.png", "naturalbiomes_mediterran_pine_trunk_top.png", "naturalbiomes_mediterran_pine_wood.png"},
-      ("Mediterranean Pine Trunk Stair"),
-      ("Mediterranean Pine Trunk Slab"),
+      {"naturalbiomes_mediterran_pine_trunk_top.png", "naturalbiomes_mediterran_pine_trunk_top.png", "naturalbiomes_mediterran_pine_trunk.png"},
+      S("Mediterranean Pine Trunk Stair"),
+      S("Mediterranean Pine Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_pine_wood",
     {
-      description = ("Mediterranean Pine Wood Fence Gate"),
+      description = S("Mediterranean Pine Wood Fence Gate"),
       texture = "naturalbiomes_mediterran_pine_wood.png",
       material = "naturalbiomes:pine_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -382,7 +383,7 @@ minetest.register_node("naturalbiomes:pine_sapling", {
 default.register_fence(
   "naturalbiomes:fence_pine_wood",
   {
-    description = ("Mediterranean Pine Fence"),
+    description = S("Mediterranean Pine Fence"),
     texture = "naturalbiomes_medpine_fence_woode.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_mediterran_pine_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_mediterran_pine_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -395,7 +396,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_pine_wood",
   {
-    description = ("Mediterranean Pine Fence Rail"),
+    description = S("Mediterranean Pine Fence Rail"),
     texture = "naturalbiomes_medpine_fence_woode.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_mediterran_pine_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -474,7 +475,7 @@ offset = -0.004,
 	})
 
 minetest.register_node("naturalbiomes:med_bush_stem", {
-	description = ("Cypress Bush Stem"),
+	description = S("Cypress Bush Stem"),
 	drawtype = "plantlike",
 	visual_scale = 1.41,
 	tiles = {"naturalbiomes_mediterran_cypress_stem.png"},
@@ -491,15 +492,15 @@ minetest.register_node("naturalbiomes:med_bush_stem", {
 })
 
 minetest.register_node("naturalbiomes:med_bush_leaves", {
-	description = ("Cypress Bush Leaves"),
+	description = S("Cypress Bush Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"naturalbiomes_mediterran_cypress_leavese.png"},
 	paramtype = "light",
-	groups = {snappy = 3, flammable = 2, leaves = 1},
+	groups = {snappy = 3, flammable = 2, leaves = 1, winleafdecay = 3},
 	drop = {
 		max_items = 1,
 		items = {
-			{items = {"naturalbiomes:med_bush_sapling"}, rarity = 5},
+			{items = {"naturalbiomes:med_bush_sapling"}, rarity = 25},
 			{items = {"naturalbiomes:med_bush_leaves"}}
 		}
 	},
@@ -509,7 +510,7 @@ minetest.register_node("naturalbiomes:med_bush_leaves", {
 })
 
 minetest.register_node("naturalbiomes:med_bush_sapling", {
-	description = ("Cypress Bush Sapling"),
+	description = S("Cypress Bush Sapling"),
 	drawtype = "plantlike",
 	tiles = {"naturalbiomes_mediterran_cypress_stem.png"},
 	inventory_image = "naturalbiomes_mediterran_cypress_stem.png",
@@ -563,7 +564,7 @@ minetest.register_node("naturalbiomes:med_bush_sapling", {
 	})
 
 minetest.register_node("naturalbiomes:med_flower1", {
-	    description = "Mediterranean Flower",
+	    description = S"Mediterranean Flower",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -602,7 +603,7 @@ minetest.register_node("naturalbiomes:med_flower1", {
 	})
 
 minetest.register_node("naturalbiomes:med_flower2", {
-	    description = "Mediterranean Flower",
+	    description = S"Mediterranean Flower",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -641,7 +642,7 @@ minetest.register_node("naturalbiomes:med_flower2", {
 	})
 
 minetest.register_node("naturalbiomes:med_flower3", {
-	    description = "Lavender",
+	    description = S"Lavender",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -680,7 +681,7 @@ minetest.register_node("naturalbiomes:med_flower3", {
 	})
 
 minetest.register_node("naturalbiomes:med_grass1", {
-	    description = "Mediterranean Grass",
+	    description = S"Mediterranean Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -719,7 +720,7 @@ minetest.register_node("naturalbiomes:med_grass1", {
 	})
 
 minetest.register_node("naturalbiomes:med_grass2", {
-	    description = "Mediterranean Grass",
+	    description = S"Mediterranean Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -806,7 +807,7 @@ offset = -0.004,
 
 -- Olives
 minetest.register_node("naturalbiomes:olives", {
-	description = ("Fresh Olives"),
+	description = S("Fresh Olives"),
 	drawtype = "plantlike",
 	tiles = {"naturalbiomes__fresholives.png"},
 	inventory_image = "naturalbiomes__fresholives.png",
@@ -820,7 +821,7 @@ minetest.register_node("naturalbiomes:olives", {
 	},
 	groups = {
 		fleshy = 3, dig_immediate = 3, flammable = 2,
-		leafdecay = 1, leafdecay_drop = 1
+		leafdecay = 1, leafdecay_drop = 1, winleafdecay_drop = 1, winleafdecay = 3
 	},
 	drop = "naturalbiomes:olives",
 	on_use = minetest.item_eat(6),

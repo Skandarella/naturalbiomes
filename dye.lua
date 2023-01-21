@@ -1,3 +1,5 @@
+local S = minetest.get_translator("naturalbiomes")
+
 minetest.register_craft({
 	output = "dye:yellow 2",
 	recipe = {

@@ -1,10 +1,11 @@
+local S = minetest.get_translator("naturalbiomes")
 
 local modname = "naturalbiomes"
 local modpath = minetest.get_modpath(modname)
 local mg_name = minetest.get_mapgen_setting("mg_name")
 
 minetest.register_node("naturalbiomes:heath_litter", {
-	description = ("Heath sand with dirt"),
+	description = S("Heath sand with dirt"),
 	tiles = {"naturalbiomes_heath_litter.png", "default_sand.png",
 		{name = "default_sand.png^naturalbiomes_heath_litter_side.png",
 			tileable_vertical = false}},
@@ -16,7 +17,7 @@ minetest.register_node("naturalbiomes:heath_litter", {
 })
 
 minetest.register_node("naturalbiomes:heath_litter2", {
-	description = ("Heath sand with dirt"),
+	description = S("Heath sand with dirt"),
 	tiles = {"naturalbiomes_heath_litter2.png", "default_sand.png",
 		{name = "default_sand.png^naturalbiomes_heath_litter_side2.png",
 			tileable_vertical = false}},
@@ -47,7 +48,7 @@ minetest.register_node("naturalbiomes:heath_litter2", {
 	})
 
 minetest.register_node("naturalbiomes:heath_litter3", {
-	description = ("Heath sand with dirt"),
+	description = S("Heath sand with dirt"),
 	tiles = {"naturalbiomes_heath_litter3.png", "default_sand.png",
 		{name = "default_sand.png^naturalbiomes_heath_litter_side3.png",
 			tileable_vertical = false}},
@@ -108,7 +109,7 @@ minetest.register_biome({
 	})
 
 minetest.register_node("naturalbiomes:heath_grass", {
-	    description = "Wood Anemone",
+	    description = S"Heath Grass",
 	    drawtype = "plantlike",
 	    waving = 2,
 	    visual_scale = 1.0,
@@ -140,7 +141,7 @@ minetest.register_node("naturalbiomes:heath_grass", {
 	})
 
 minetest.register_node("naturalbiomes:heath_grass2", {
-	    description = "Periwinkle",
+	    description = S"Heath Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -173,7 +174,7 @@ minetest.register_node("naturalbiomes:heath_grass2", {
 	})
 
 minetest.register_node("naturalbiomes:heath_grass3", {
-	    description = "Heath Grass",
+	    description = S"Heath Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -206,7 +207,7 @@ minetest.register_node("naturalbiomes:heath_grass3", {
 	})
 
 minetest.register_node("naturalbiomes:heatherflower", {
-	    description = "Heather Flower",
+	    description = S"Heather Flower",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -239,7 +240,7 @@ minetest.register_node("naturalbiomes:heatherflower", {
 	})
 
 minetest.register_node("naturalbiomes:heatherflower2", {
-	    description = "Heather Flower",
+	    description = S"Heather Flower",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -272,7 +273,7 @@ minetest.register_node("naturalbiomes:heatherflower2", {
 	})
 
 minetest.register_node("naturalbiomes:heatherflower3", {
-	    description = "Heather Flower",
+	    description = S"Heather Flower",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.5,
@@ -305,7 +306,7 @@ minetest.register_node("naturalbiomes:heatherflower3", {
 	})
 
 minetest.register_node("naturalbiomes:heatherflower4", {
-	    description = "Heather Flower",
+	    description = S"Heather Flower",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.5,
@@ -338,7 +339,7 @@ minetest.register_node("naturalbiomes:heatherflower4", {
 	})
 
 minetest.register_node("naturalbiomes:swampgrass", {
-	    description = "Swamp Grass",
+	    description = S"Swamp Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -371,7 +372,7 @@ minetest.register_node("naturalbiomes:swampgrass", {
 	})
 
 minetest.register_node("naturalbiomes:swampgrass2", {
-	    description = "Swamp Grass",
+	    description = S"Swamp Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -408,7 +409,7 @@ end
 
 -- willow trunk
 minetest.register_node("naturalbiomes:heath_willow_trunk", {
-	description = ("Willow Trunk"),
+	description = S("Willow Trunk"),
 	tiles = {
 		"naturalbiomes_heath_willow_trunk_top.png",
 		"naturalbiomes_heath_willow_trunk_top.png",
@@ -422,7 +423,7 @@ minetest.register_node("naturalbiomes:heath_willow_trunk", {
 
 -- willow wood
 minetest.register_node("naturalbiomes:heath_willow_wood", {
-	description = ("Willow Wood"),
+	description = S("Willow Wood"),
 	tiles = {"naturalbiomes_heath_willow_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -435,7 +436,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:heath_willow_leaves", {
-  description = ("Willow Leaves"),
+  description = S("Willow Leaves"),
   drawtype = "plantlike",
   visual_scale = 4.0,
   waving = 1,
@@ -443,7 +444,7 @@ minetest.register_node("naturalbiomes:heath_willow_leaves", {
   special_tiles = {"naturalbiomes_heath_willow_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
@@ -465,7 +466,7 @@ minetest.register_node("naturalbiomes:heath_willow_leaves", {
 })
 
 minetest.register_node("naturalbiomes:heath_willow_leaves2", {
-  description = ("Willow Leaves"),
+  description = S("Willow Leaves"),
   drawtype = "allfaces_optional",
   visual_scale = 1.0,
   waving = 1,
@@ -473,7 +474,7 @@ minetest.register_node("naturalbiomes:heath_willow_leaves2", {
   special_tiles = {"naturalbiomes_heath_willow_leaves2.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
@@ -495,7 +496,7 @@ minetest.register_node("naturalbiomes:heath_willow_leaves2", {
 })
 
 minetest.register_node("naturalbiomes:willow_sapling", {
-  description = ("Willow Sapling"),
+  description = S("Willow Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_heath_willow_sapling.png"},
   inventory_image = "naturalbiomes_heath_willow_sapling.png",
@@ -539,8 +540,8 @@ minetest.register_node("naturalbiomes:willow_sapling", {
       "naturalbiomes:heath_willow_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_heath_willow_wood.png"},
-      ("Willow Stair"),
-      ("Willow Slab"),
+      S("Willow Stair"),
+      S("Willow Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -549,15 +550,15 @@ minetest.register_node("naturalbiomes:willow_sapling", {
       "naturalbiomes:heath_willow_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_heath_willow_trunk_top.png", "naturalbiomes_heath_willow_trunk_top.png", "naturalbiomes_heath_willow_trunk.png"},
-      ("Willow Trunk Stair"),
-      ("Willow Trunk Slab"),
+      S("Willow Trunk Stair"),
+      S("Willow Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_willow_wood",
     {
-      description = ("Willow Wood Fence Gate"),
+      description = S("Willow Wood Fence Gate"),
       texture = "naturalbiomes_heath_willow_wood.png",
       material = "naturalbiomes:heath_willow_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -569,7 +570,7 @@ minetest.register_node("naturalbiomes:willow_sapling", {
 default.register_fence(
   "naturalbiomes:fence_willow_wood",
   {
-    description = ("Willow Fence"),
+    description = S("Willow Fence"),
     texture = "naturalbiomes_adler_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_heath_willow_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_heath_willow_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -582,7 +583,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_willow_wood",
   {
-    description = ("Willow Fence Rail"),
+    description = S("Willow Fence Rail"),
     texture = "naturalbiomes_heath_willow_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_heath_willow_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -639,7 +640,7 @@ end
 
 -- juniper trunk
 minetest.register_node("naturalbiomes:heath_juniper_trunk", {
-	description = ("Juniper Trunk"),
+	description = S("Juniper Trunk"),
 	tiles = {
 		"naturalbiomes_heath_juniper_trunk_top.png",
 		"naturalbiomes_heath_juniper_trunk_top.png",
@@ -653,7 +654,7 @@ minetest.register_node("naturalbiomes:heath_juniper_trunk", {
 
 -- juniper wood
 minetest.register_node("naturalbiomes:heath_juniper_wood", {
-	description = ("Juniper Wood"),
+	description = S("Juniper Wood"),
 	tiles = {"naturalbiomes_heath_juniper_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -666,7 +667,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:heath_juniper_leaves", {
-  description = ("Juniper Leaves"),
+  description = S("Juniper Leaves"),
   drawtype = "allfaces_optional",
   visual_scale = 1.0,
   waving = 1,
@@ -674,14 +675,14 @@ minetest.register_node("naturalbiomes:heath_juniper_leaves", {
   special_tiles = {"naturalbiomes_heath_juniper_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
       {
         -- player will get sapling with 1/50 chance
         items = {'naturalbiomes:juniper_sapling'},
-        rarity = 50,
+        rarity = 6,
       },
       {
         -- player will get leaves only if he get no saplings,
@@ -696,7 +697,7 @@ minetest.register_node("naturalbiomes:heath_juniper_leaves", {
 })
 
 minetest.register_node("naturalbiomes:juniper_sapling", {
-  description = ("Juniper Sapling"),
+  description = S("Juniper Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_heath_juniper_sapling.png"},
   inventory_image = "naturalbiomes_heath_juniper_sapling.png",
@@ -740,8 +741,8 @@ minetest.register_node("naturalbiomes:juniper_sapling", {
       "naturalbiomes:heath_juniper_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_heath_juniper_wood.png"},
-      ("Juniper Stair"),
-      ("Juniper Slab"),
+      S("Juniper Stair"),
+      S("Juniper Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -750,15 +751,15 @@ minetest.register_node("naturalbiomes:juniper_sapling", {
       "naturalbiomes:heath_juniper_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_heath_juniper_trunk_top.png", "naturalbiomes_heath_juniper_trunk_top.png", "naturalbiomes_heath_juniper_trunk.png"},
-      ("Juniper Trunk Stair"),
-      ("Juniper Trunk Slab"),
+      S("Juniper Trunk Stair"),
+      S("Juniper Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_juniper_wood",
     {
-      description = ("Juniper Wood Fence Gate"),
+      description = S("Juniper Wood Fence Gate"),
       texture = "naturalbiomes_heath_juniper_wood.png",
       material = "naturalbiomes:heath_juniper_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -770,7 +771,7 @@ minetest.register_node("naturalbiomes:juniper_sapling", {
 default.register_fence(
   "naturalbiomes:fence_juniper_wood",
   {
-    description = ("Juniper Fence"),
+    description = S("Juniper Fence"),
     texture = "naturalbiomes_adler_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_heath_juniper_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_heath_juniper_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -783,7 +784,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_juniper_wood",
   {
-    description = ("Juniper Fence Rail"),
+    description = S("Juniper Fence Rail"),
     texture = "naturalbiomes_heath_juniper_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_heath_juniper_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -840,7 +841,7 @@ end
 
 -- birch trunk
 minetest.register_node("naturalbiomes:heath_birch_trunk", {
-	description = ("Birch Trunk"),
+	description = S("Birch Trunk"),
 	tiles = {
 		"naturalbiomes_heath_birch_trunk_top.png",
 		"naturalbiomes_heath_birch_trunk_top.png",
@@ -854,7 +855,7 @@ minetest.register_node("naturalbiomes:heath_birch_trunk", {
 
 -- birch wood
 minetest.register_node("naturalbiomes:heath_birch_wood", {
-	description = ("Birch Wood"),
+	description = S("Birch Wood"),
 	tiles = {"naturalbiomes_heath_birch_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -867,7 +868,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:heath_birch_leaves", {
-  description = ("Birch Leaves"),
+  description = S("Birch Leaves"),
   drawtype = "allfaces_optional",
   visual_scale = 1.0,
   waving = 1,
@@ -875,14 +876,14 @@ minetest.register_node("naturalbiomes:heath_birch_leaves", {
   special_tiles = {"naturalbiomes_heath_birch_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
       {
         -- player will get sapling with 1/50 chance
         items = {'naturalbiomes:birch_sapling'},
-        rarity = 50,
+        rarity = 40,
       },
       {
         -- player will get leaves only if he get no saplings,
@@ -897,7 +898,7 @@ minetest.register_node("naturalbiomes:heath_birch_leaves", {
 })
 
 minetest.register_node("naturalbiomes:birch_sapling", {
-  description = ("Birch Sapling"),
+  description = S("Birch Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_heath_birch_sapling.png"},
   inventory_image = "naturalbiomes_heath_birch_sapling.png",
@@ -941,8 +942,8 @@ minetest.register_node("naturalbiomes:birch_sapling", {
       "naturalbiomes:heath_birch_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_heath_birch_wood.png"},
-      ("Birch Stair"),
-      ("Birch Slab"),
+      S("Birch Stair"),
+      S("Birch Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -951,15 +952,15 @@ minetest.register_node("naturalbiomes:birch_sapling", {
       "naturalbiomes:heath_birch_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_heath_birch_trunk_top.png", "naturalbiomes_heath_birch_trunk_top.png", "naturalbiomes_heath_birch_trunk.png"},
-      ("Birch Trunk Stair"),
-      ("Birch Trunk Slab"),
+      S("Birch Trunk Stair"),
+      S("Birch Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_birch_wood",
     {
-      description = ("Birch Wood Fence Gate"),
+      description = S("Birch Wood Fence Gate"),
       texture = "naturalbiomes_heath_birch_wood.png",
       material = "naturalbiomes:heath_birch_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -971,7 +972,7 @@ minetest.register_node("naturalbiomes:birch_sapling", {
 default.register_fence(
   "naturalbiomes:fence_birch_wood",
   {
-    description = ("Birch Fence"),
+    description = S("Birch Fence"),
     texture = "naturalbiomes_adler_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_heath_birch_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_heath_birch_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -984,7 +985,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_birch_wood",
   {
-    description = ("Birch Fence Rail"),
+    description = S("Birch Fence Rail"),
     texture = "naturalbiomes_heath_birch_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_heath_birch_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -1048,7 +1049,7 @@ minetest.register_decoration({
 	})
 
 minetest.register_node("naturalbiomes:heatherflowernode", {
-	    description = "Heather Flower Node",
+	    description = S"Heather Flower Node",
 	    drawtype = "allfaces_optional",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -1089,7 +1090,7 @@ minetest.register_node("naturalbiomes:heatherflowernode", {
 	})
 
 minetest.register_node("naturalbiomes:heatherflower2node", {
-	    description = "Heather Flower Node",
+	    description = S"Heather Flower Node",
 	    drawtype = "allfaces_optional",
 	    waving = 1,
 	    visual_scale = 1,
@@ -1130,7 +1131,7 @@ minetest.register_node("naturalbiomes:heatherflower2node", {
 	})
 
 minetest.register_node("naturalbiomes:heatherflower3node", {
-	    description = "Heather Flower Node",
+	    description = S"Heather Flower Node",
 	    drawtype = "allfaces_optional",
 	    waving = 1,
 	    visual_scale = 1,
@@ -1171,7 +1172,7 @@ minetest.register_node("naturalbiomes:heatherflower3node", {
 	})
 
 minetest.register_node("naturalbiomes:heatherflower4node", {
-	    description = "Heather Flower Node",
+	    description = S"Heather Flower Node",
 	    drawtype = "allfaces_optional",
 	    waving = 1,
 	    visual_scale = 1,

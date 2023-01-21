@@ -1,10 +1,12 @@
 
+local S = minetest.get_translator("naturalbiomes")
+
 local modname = "naturalbiomes"
 local modpath = minetest.get_modpath(modname)
 local mg_name = minetest.get_mapgen_setting("mg_name")
 
 minetest.register_node("naturalbiomes:alderswamp_litter", {
-	description = ("Alder Swamp dirt with Grass"),
+	description = S("Alder Swamp dirt with Grass"),
 	tiles = {"naturalbiomes_alderswamp_litter.png", "naturalbiomes_alderswamp_dirt.png",
 		{name = "naturalbiomes_alderswamp_dirt.png^naturalbiomes_alderswamp_litter_side.png",
 			tileable_vertical = false}},
@@ -16,7 +18,7 @@ minetest.register_node("naturalbiomes:alderswamp_litter", {
 })
 
 minetest.register_node("naturalbiomes:alderswamp_dirt", {
-	description = ("Alder Swamp Dirt"),
+	description = S("Alder Swamp Dirt"),
 	tiles = {"naturalbiomes_alderswamp_dirt.png"},
 	groups = {crumbly = 3, soil = 1, falling_node = 1},
 	sounds = default.node_sound_dirt_defaults(),
@@ -58,7 +60,7 @@ end
 
 -- alder trunk
 minetest.register_node("naturalbiomes:alder_trunk", {
-	description = ("Alder Trunk"),
+	description = S("Alder Trunk"),
 	tiles = {
 		"naturalbiomes_alderswamp_alder_trunk_top.png",
 		"naturalbiomes_alderswamp_alder_trunk_top.png",
@@ -72,7 +74,7 @@ minetest.register_node("naturalbiomes:alder_trunk", {
 
 -- alder wood
 minetest.register_node("naturalbiomes:alder_wood", {
-	description = ("Alder Wood"),
+	description = S("Alder Wood"),
 	tiles = {"naturalbiomes_alderswamp_alder_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -85,14 +87,14 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:alder_leaves", {
-  description = ("Alder Leaves"),
+  description = S("Alder Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_alderswamp_alder_leaves.png"},
   special_tiles = {"naturalbiomes_alderswamp_alder_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
@@ -114,7 +116,7 @@ minetest.register_node("naturalbiomes:alder_leaves", {
 })
 
 minetest.register_node("naturalbiomes:alder_sapling", {
-  description = ("Alder Sapling"),
+  description = S("Alder Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_alderswamp_sapling.png"},
   inventory_image = "naturalbiomes_alderswamp_sapling.png",
@@ -158,8 +160,8 @@ minetest.register_node("naturalbiomes:alder_sapling", {
       "naturalbiomes:alder_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alderswamp_alder_wood.png"},
-      ("Alder Stair"),
-      ("Alder Slab"),
+      S("Alder Stair"),
+      S("Alder Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -168,15 +170,15 @@ minetest.register_node("naturalbiomes:alder_sapling", {
       "naturalbiomes:alder_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alderswamp_alder_trunk_top.png", "naturalbiomes_alderswamp_alder_trunk_top.png", "naturalbiomes_alderswamp_alder_trunk.png"},
-      ("Alder Trunk Stair"),
-      ("Alder Trunk Slab"),
+      S("Alder Trunk Stair"),
+      S("Alder Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_alder_wood",
     {
-      description = ("Alder Wood Fence Gate"),
+      description = S("Alder Wood Fence Gate"),
       texture = "naturalbiomes_alderswamp_alder_wood.png",
       material = "naturalbiomes:alder_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -188,7 +190,7 @@ minetest.register_node("naturalbiomes:alder_sapling", {
 default.register_fence(
   "naturalbiomes:fence_alder_wood",
   {
-    description = ("Alder Fence"),
+    description = S("Alder Fence"),
     texture = "naturalbiomes_adler_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_alderswamp_alder_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_alderswamp_alder_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -201,7 +203,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_alder_wood",
   {
-    description = ("Alder Fence Rail"),
+    description = S("Alder Fence Rail"),
     texture = "naturalbiomes_adler_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_alderswamp_alder_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -259,7 +261,7 @@ minetest.register_decoration({
 })
 
 minetest.register_node("naturalbiomes:alderswamp_reed", {
-	    description = "Alderswamp reed",
+	    description = S"Alderswamp reed",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -298,7 +300,7 @@ minetest.register_node("naturalbiomes:alderswamp_reed", {
 	})
 
 minetest.register_node("naturalbiomes:alderswamp_reed", {
-	    description = "Alderswamp reed",
+	    description = S"Alderswamp reed",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -337,7 +339,7 @@ minetest.register_node("naturalbiomes:alderswamp_reed", {
 	})
 
 minetest.register_node("naturalbiomes:alderswamp_reed2", {
-	    description = "Alderswamp reed",
+	    description = S"Alderswamp reed",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -376,7 +378,7 @@ minetest.register_node("naturalbiomes:alderswamp_reed2", {
 	})
 
 minetest.register_node("naturalbiomes:alderswamp_reed3", {
-	    description = "Alderswamp reed",
+	    description = S"Alderswamp reed",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -465,7 +467,7 @@ minetest.register_node("naturalbiomes:alderswamp_reed3", {
 	})
 
 minetest.register_node("naturalbiomes:waterlily", {
-	description = ("Waterlily"),
+	description = S("Waterlily"),
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -539,7 +541,7 @@ minetest.register_node("naturalbiomes:waterlily", {
 	})
 
 minetest.register_node("naturalbiomes:alderswamp_yellowflower", {
-	    description = "Alderswamp flower",
+	    description = S"Alderswamp flower",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -578,7 +580,7 @@ minetest.register_node("naturalbiomes:alderswamp_yellowflower", {
 	})
 
 minetest.register_node("naturalbiomes:alderswamp_brownreed", {
-	    description = "Alderswamp reed",
+	    description = S"Alderswamp reed",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,

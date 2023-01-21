@@ -1,5 +1,6 @@
 default
 stairs
 doors
+xpanes
 hunger_ng?
 ethereal?

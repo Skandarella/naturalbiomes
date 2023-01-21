@@ -1,10 +1,11 @@
+local S = minetest.get_translator("naturalbiomes")
 
 local modname = "naturalbiomes"
 local modpath = minetest.get_modpath(modname)
 local mg_name = minetest.get_mapgen_setting("mg_name")
 
 minetest.register_node("naturalbiomes:savannalitter", {
-	description = ("Wet Savanna dirt with Grass"),
+	description = S("Wet Savanna dirt with Grass"),
 	tiles = {"naturalbiomes_savannalitter.png", "default_dirt.png",
 		{name = "default_dirt.png^naturalbiomes_savannalitter_side.png",
 			tileable_vertical = false}},
@@ -28,8 +29,8 @@ minetest.register_biome({
 		node_dungeon_stair = "stairs:stair_cobble",
     y_max = 31000,
     y_min = 5,
-    heat_point = 65,
-    humidity_point = 40,
+    heat_point = 86,
+    humidity_point = 60,
 })
 
 -- Tree generation
@@ -51,7 +52,7 @@ end
 
 -- acacia trunk
 minetest.register_node("naturalbiomes:acacia_trunk", {
-	description = ("Acacia Trunk"),
+	description = S("Acacia Trunk"),
 	tiles = {
 		"naturalbiomes_savannaacaia_trunk_top.png",
 		"naturalbiomes_savannaacaia_trunk_top.png",
@@ -65,7 +66,7 @@ minetest.register_node("naturalbiomes:acacia_trunk", {
 
 -- acacia wood
 minetest.register_node("naturalbiomes:acacia_wood", {
-	description = ("Acacia Wood"),
+	description = S("Acacia Wood"),
 	tiles = {"naturalbiomes_savannaacacia_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -78,14 +79,14 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:acacia_leaves", {
-  description = ("Acacia Leaves"),
+  description = S("Acacia Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_savannaacacia_leaves.png"},
   special_tiles = {"naturalbiomes_savannaacacia_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
@@ -107,7 +108,7 @@ minetest.register_node("naturalbiomes:acacia_leaves", {
 })
 
 minetest.register_node("naturalbiomes:acacia_sapling", {
-  description = ("Acacia Sapling"),
+  description = S("Acacia Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_savannaacaia_sapling.png"},
   inventory_image = "naturalbiomes_savannaacaia_sapling.png",
@@ -147,8 +148,8 @@ minetest.register_node("naturalbiomes:acacia_sapling", {
       "naturalbiomes:acacia_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_savannaacacia_wood.png"},
-      ("Acacia Stair"),
-      ("Acacia Slab"),
+      S("Acacia Stair"),
+      S("Acacia Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -157,15 +158,15 @@ minetest.register_node("naturalbiomes:acacia_sapling", {
       "naturalbiomes:acacia_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_savannaacaia_trunk_top.png", "naturalbiomes_savannaacaia_trunk_top.png", "naturalbiomes_savannaacacia_trunk.png"},
-      ("Acacia Trunk Stair"),
-      ("Acacia Trunk Slab"),
+      S("Acacia Trunk Stair"),
+      S("Acacia Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_acacia_wood",
     {
-      description = ("Acacia Wood Fence Gate"),
+      description = S("Acacia Wood Fence Gate"),
       texture = "naturalbiomes_savannaacacia_wood.png",
       material = "naturalbiomes:acacia_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -177,7 +178,7 @@ minetest.register_node("naturalbiomes:acacia_sapling", {
 default.register_fence(
   "naturalbiomes:fence_acacia_wood",
   {
-    description = ("Acacia Fence"),
+    description = S("Acacia Fence"),
     texture = "naturalbiomes_acacia_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_savannaacacia_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_savannaacacia_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -190,7 +191,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_acacia_wood",
   {
-    description = ("Acacia Fence Rail"),
+    description = S("Acacia Fence Rail"),
     texture = "naturalbiomes_acacia_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_savannaacacia_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -208,11 +209,41 @@ minetest.register_decoration({
     place_on = {"naturalbiomes:savannalitter"},
     place_offset_y = 0,
     sidelen = 16,
-    fill_ratio = 0.00215,
+    fill_ratio = 0.00071,
     biomes = {"naturalbiomes:wetsavanna"},
     y_max = 31000,
     y_min = 2,
     schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_acaciatree_0_180.mts",
+	flags = "place_center_x, place_center_z",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+    name = "naturalbiomes:acacia_tree3",
+    deco_type = "schematic",
+    place_on = {"naturalbiomes:savannalitter"},
+    place_offset_y = -2,
+    sidelen = 16,
+    fill_ratio = 0.00071,
+    biomes = {"naturalbiomes:wetsavanna"},
+    y_max = 31000,
+    y_min = 2,
+    schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_acaciatree3.mts",
+	flags = "place_center_x, place_center_z",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+    name = "naturalbiomes:acacia_tree4",
+    deco_type = "schematic",
+    place_on = {"naturalbiomes:savannalitter"},
+    place_offset_y = 0,
+    sidelen = 16,
+    fill_ratio = 0.00071,
+    biomes = {"naturalbiomes:wetsavanna"},
+    y_max = 31000,
+    y_min = 2,
+    schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_acaciatree4.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
 })
@@ -237,7 +268,7 @@ minetest.register_decoration({
 	})
 
 minetest.register_node("naturalbiomes:savannagrass", {
-	description = ("Savanna Grass"),
+	description = S("Savanna Grass"),
 	drawtype = "plantlike",
 	tiles = {"naturalbiomes_savannagrass.png"},
 	inventory_image = "naturalbiomes_savannagrass.png",
@@ -277,7 +308,7 @@ minetest.register_node("naturalbiomes:savannagrass", {
 	})
 
 minetest.register_node("naturalbiomes:savannagrasssmall", {
-	description = ("Savanna Grass"),
+	description = S("Savanna Grass"),
 	drawtype = "plantlike",
 	tiles = {"naturalbiomes_savannagrass.png"},
 	inventory_image = "naturalbiomes_savannagrass.png",
@@ -317,7 +348,7 @@ minetest.register_node("naturalbiomes:savannagrasssmall", {
 	})
 
 minetest.register_node("naturalbiomes:savanna_flowergrass", {
-	    description = "Savanna Flowergrass",
+	    description = S"Savanna Flowergrass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -341,14 +372,7 @@ minetest.register_node("naturalbiomes:savanna_flowergrass", {
 		deco_type = "simple",
 		place_on = {"naturalbiomes:savannalitter"},
 		sidelen = 16,
-		noise_params = {
-			offset = -0.03,
-			scale = 0.1,
-			spread = {x = 100, y = 100, z = 100},
-			seed = 1987,
-			octaves = 3,
-			persist = 2,
-		},
+    fill_ratio = 0.02871,
 		y_max = 30000,
 		y_min = 1,
 		decoration = "naturalbiomes:savanna_grass2",
@@ -356,7 +380,7 @@ minetest.register_node("naturalbiomes:savanna_flowergrass", {
 	})
 
 minetest.register_node("naturalbiomes:savanna_grass2", {
-	    description = "Savanna Grass",
+	    description = S"Savanna Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -380,14 +404,7 @@ minetest.register_node("naturalbiomes:savanna_grass2", {
 		deco_type = "simple",
 		place_on = {"naturalbiomes:savannalitter"},
 		sidelen = 16,
-		noise_params = {
-			offset = -0.03,
-			scale = 0.1,
-			spread = {x = 100, y = 100, z = 100},
-			seed = 834,
-			octaves = 3,
-			persist = 2,
-		},
+    fill_ratio = 0.02871,
 		y_max = 30000,
 		y_min = 1,
 		decoration = "naturalbiomes:savanna_grass3",
@@ -395,7 +412,7 @@ minetest.register_node("naturalbiomes:savanna_grass2", {
 	})
 
 minetest.register_node("naturalbiomes:savanna_grass3", {
-	    description = "Savanna Grass",
+	    description = S"Savanna Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,

@@ -1,10 +1,11 @@
+local S = minetest.get_translator("naturalbiomes")
 
 local modname = "naturalbiomes"
 local modpath = minetest.get_modpath(modname)
 local mg_name = minetest.get_mapgen_setting("mg_name")
 
 minetest.register_node("naturalbiomes:palmbeach_sand", {
-	description = ("Beach Sand"),
+	description = S("Beach Sand"),
 	tiles = {"naturalbiomes_beach_sand.png"},
 	groups = {crumbly = 3, sand = 1, falling_node = 1},
 	sounds = default.node_sound_dirt_defaults(),
@@ -28,7 +29,7 @@ minetest.register_biome({
 })
 
 minetest.register_node("naturalbiomes:palmbeach_rock", {
-	description = ("Beach Rock"),
+	description = S("Beach Rock"),
 	tiles = {"naturalbiomes_beach_rock.png"},
 	groups = {cracky = 3, stone = 1},
 	drop = "naturalbiomes:palmbeach_rock",
@@ -145,7 +146,7 @@ end
 
 -- palm trunk
 minetest.register_node("naturalbiomes:palm_trunk", {
-	description = ("Coconut Palm Trunk"),
+	description = S("Coconut Palm Trunk"),
 	tiles = {
 		"naturalbiomes_savannapalm_trunk_top.png",
 		"naturalbiomes_savannapalm_trunk_top.png",
@@ -159,7 +160,7 @@ minetest.register_node("naturalbiomes:palm_trunk", {
 
 -- palm wood
 minetest.register_node("naturalbiomes:palm_wood", {
-	description = ("Coconut Palm Wood"),
+	description = S("Coconut Palm Wood"),
 	tiles = {"naturalbiomes_savannapalm_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
@@ -172,21 +173,21 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:palm_leaves", {
-  description = ("Coconut Palm Leaves"),
+  description = S("Coconut Palm Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
   tiles = {"naturalbiomes_savannapalm_leaves.png"},
   special_tiles = {"naturalbiomes_savannapalm_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
-  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+  groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
   drop = {
     max_items = 1,
     items = {
       {
         -- player will get sapling with 1/50 chance
         items = {'naturalbiomes:palm_sapling'},
-        rarity = 50,
+        rarity = 35,
       },
       {
         -- player will get leaves only if he get no saplings,
@@ -201,7 +202,7 @@ minetest.register_node("naturalbiomes:palm_leaves", {
 })
 
 minetest.register_node("naturalbiomes:palm_sapling", {
-  description = ("Coconut Palm Sapling"),
+  description = S("Coconut Palm Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_savannapalm_sapling.png"},
   inventory_image = "naturalbiomes_savannapalm_sapling.png",
@@ -241,8 +242,8 @@ minetest.register_node("naturalbiomes:palm_sapling", {
       "naturalbiomes:palm_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_savannapalm_wood.png"},
-      ("Coconut Palm Stair"),
-      ("Coconut Palm Slab"),
+      S("Coconut Palm Stair"),
+      S("Coconut Palm Slab"),
       default.node_sound_wood_defaults()
     )
 
@@ -251,15 +252,15 @@ minetest.register_node("naturalbiomes:palm_sapling", {
       "naturalbiomes:palm_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_savannapalm_trunk_top.png", "naturalbiomes_savannapalm_trunk_top.png", "naturalbiomes_savannapalm_trunk.png"},
-      ("Coconut Palm Trunk Stair"),
-      ("Coconut Palm Trunk Slab"),
+      S("Coconut Palm Trunk Stair"),
+      S("Coconut Palm Trunk Slab"),
       default.node_sound_wood_defaults()
     )
 
   doors.register_fencegate(
     "naturalbiomes:gate_palm_wood",
     {
-      description = ("Coconut Palm Wood Fence Gate"),
+      description = S("Coconut Palm Wood Fence Gate"),
       texture = "naturalbiomes_savannapalm_wood.png",
       material = "naturalbiomes:palm_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
@@ -271,7 +272,7 @@ minetest.register_node("naturalbiomes:palm_sapling", {
 default.register_fence(
   "naturalbiomes:fence_palm_wood",
   {
-    description = ("Coconut Palm Fence"),
+    description = S("Coconut Palm Fence"),
     texture = "naturalbiomes_palm_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_savannapalm_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_savannapalm_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
@@ -284,7 +285,7 @@ default.register_fence(
 default.register_fence_rail(
   "naturalbiomes:fence_rail_palm_wood",
   {
-    description = ("Coconut Palm Fence Rail"),
+    description = S("Coconut Palm Fence Rail"),
     texture = "naturalbiomes_palm_fence_wood.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_savannapalm_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
@@ -347,7 +348,7 @@ offset = -0.004,
 	})
 
 minetest.register_node("naturalbiomes:beach_bush_stem", {
-	description = ("Beach Bush Stem"),
+	description = S("Beach Bush Stem"),
 	drawtype = "plantlike",
 	visual_scale = 1.41,
 	tiles = {"naturalbiomes_beach_bush_stem.png"},
@@ -364,15 +365,15 @@ minetest.register_node("naturalbiomes:beach_bush_stem", {
 })
 
 minetest.register_node("naturalbiomes:beach_bush_leaves", {
-	description = ("Beach Bush Leaves"),
+	description = S("Beach Bush Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"naturalbiomes_beach_bush_leaves.png"},
 	paramtype = "light",
-	groups = {snappy = 3, flammable = 2, leaves = 1},
+	groups = {snappy = 3, flammable = 2, leaves = 1, winleafdecay = 3},
 	drop = {
 		max_items = 1,
 		items = {
-			{items = {"naturalbiomes:beach_bush_sapling"}, rarity = 5},
+			{items = {"naturalbiomes:beach_bush_sapling"}, rarity = 3},
 			{items = {"naturalbiomes:beach_bush_leaves"}}
 		}
 	},
@@ -382,7 +383,7 @@ minetest.register_node("naturalbiomes:beach_bush_leaves", {
 })
 
 minetest.register_node("naturalbiomes:beach_bush_sapling", {
-	description = ("Beach Bush Sapling"),
+	description = S("Beach Bush Sapling"),
 	drawtype = "plantlike",
 	tiles = {"naturalbiomes_beach_bush_stem.png"},
 	inventory_image = "naturalbiomes_beach_bush_stem.png",
@@ -436,7 +437,7 @@ minetest.register_node("naturalbiomes:beach_bush_sapling", {
 	})
 
 minetest.register_node("naturalbiomes:palmbeach_grass1", {
-	    description = "Palmbeach Grass",
+	    description = S"Palmbeach Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -475,7 +476,7 @@ minetest.register_node("naturalbiomes:palmbeach_grass1", {
 	})
 
 minetest.register_node("naturalbiomes:palmbeach_grass2", {
-	    description = "Palmbeach Grass",
+	    description = S"Palmbeach Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -514,7 +515,7 @@ minetest.register_node("naturalbiomes:palmbeach_grass2", {
 	})
 
 minetest.register_node("naturalbiomes:palmbeach_grass3", {
-	    description = "Palmbeach Grass",
+	    description = S"Palmbeach Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 1.0,
@@ -535,7 +536,7 @@ minetest.register_node("naturalbiomes:palmbeach_grass3", {
 
 -- Banana Bunch
 minetest.register_node("naturalbiomes:banana_bunch", {
-	description = ("Banana Bunch"),
+	description = S("Banana Bunch"),
 	drawtype = "plantlike",
 	tiles = {"naturalbiomes_banana_bunch.png"},
 	inventory_image = "naturalbiomes_banana_bunch.png",
@@ -549,7 +550,7 @@ minetest.register_node("naturalbiomes:banana_bunch", {
 	},
 	groups = {
 		fleshy = 3, dig_immediate = 3, flammable = 2,
-		leafdecay = 1, leafdecay_drop = 1
+		leafdecay = 1, leafdecay_drop = 1, winleafdecay_drop = 1, winleafdecay = 3
 	},
 	drop = "naturalbiomes:banana_bunch",
 	on_use = minetest.item_eat(6),
@@ -575,7 +576,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("naturalbiomes:banana", {
-	description = ("Banana"),
+	description = S("Banana"),
 	drawtype = "torchlike",
 	tiles = {"naturalbiomes_banana_single.png"},
 	inventory_image = "naturalbiomes_banana_single.png",
@@ -602,7 +603,7 @@ minetest.register_node("naturalbiomes:banana", {
 })
 
 minetest.register_node("naturalbiomes:coconut_slice", {
-	description = ("Coconut Slice"),
+	description = S("Coconut Slice"),
 	drawtype = "torchlike",
 	tiles = {"naturalbiomes_coconut_slice.png"},
 	inventory_image = "naturalbiomes_coconut_slice.png",
@@ -630,7 +631,7 @@ minetest.register_node("naturalbiomes:coconut_slice", {
 
 -- Coco
 minetest.register_node("naturalbiomes:coconut", {
-	description = ("Coconut"),
+	description = S("Coconut"),
 	drawtype = "plantlike",
 	tiles = {"naturalbiomes_coconut.png"},
 	inventory_image = "naturalbiomes_coconut.png",
@@ -644,7 +645,7 @@ minetest.register_node("naturalbiomes:coconut", {
 	},
 	groups = {
 		fleshy = 3, dig_immediate = 3, flammable = 2,
-		leafdecay = 1, leafdecay_drop = 1
+		leafdecay = 1, leafdecay_drop = 1, winleafdecay_drop = 1, winleafdecay = 3
 	},
 	drop = "naturalbiomes:coconut",
 	on_use = minetest.item_eat(6),
